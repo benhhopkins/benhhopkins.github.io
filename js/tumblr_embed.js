@@ -6,7 +6,7 @@ $( document ).ready(function() {
 		 // creating the url to access the endpoing. The variable with the blog
 		 // url goes once more under regex to make sure no character is being pass
 		 // that might stop the ajax call
-		 url: 'http://api.tumblr.com/v2/blog/' + urlTumblr + '/posts',
+		 url: 'https://api.tumblr.com/v2/blog/' + urlTumblr + '/posts',
 		 method: 'get',
 		 // make sure to use jsonp. It is a requirement to consume the Tumblr api
 		 dataType: "jsonp",
