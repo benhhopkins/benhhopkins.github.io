@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Barkley, Shut Up and Screen</title>
+		<style>
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: rgb(75, 75, 75);
+            }
+            canvas {
+                border: 5px solid #000000;
+            }
+		</style>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="pixi.dev.js"></script>
+        <script src="input.js"></script>
+        <script src="audio.js"></script>
+        <script src="game.js"></script>
+		<script src="main.js"></script>
+	</head>
+	<body>
+		<center><p id="barkley"></p></center>
+        <script>
+        $(document).ready(function () {
+            $("#barkley").append(Main(""));
+        });
+        </script>
+	</body>
+</html>

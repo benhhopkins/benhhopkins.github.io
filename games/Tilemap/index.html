@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Tilemap</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+			}
+            canvas {
+                border: 5px solid #000000;
+            }
+		</style>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="pixi.dev.js"></script>
+        <script src="tilemap.js"></script>
+        <script src="menu.js"></script>
+		<script src="main.js"></script>
+	</head>
+	<body>
+		<p id="demo"></p>
+        <script>
+        $("#demo").append(Main("", 800, 600));
+        </script>
+	</body>
+</html>

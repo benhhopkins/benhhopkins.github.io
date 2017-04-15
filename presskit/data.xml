@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- example file containing base tags -->
+
+<game>	
+	<title>Ben Hopkins Games</title>
+	<founding-date>2015</founding-date>
+	<website>bhopkins.net</website>
+	<based-in>Denver, Colorado</based-in>
+	
+	<press-contact>ben@hypotheticalgames.com</press-contact>
+	<!-- <phone></phone> 
+	<address>
+		<line>Address Line 1</line>
+		<line>Address Line 2</line>
+		<line>Address Line 3</line>
+	</address>-->
+
+	<socials>
+		<social>
+			<name>twitter.com/benhhopkins</name>
+			<link>twitter.com/benhhopkins</link>
+		</social>
+	</socials>
+
+	<description>	
+		Ben makes games to explore unique mechanics and experiences.
+	</description>
+		
+	<histories>
+		<history>
+			<!--<header>History</header>-->
+			<text>After working for a large software company out of university and finding it sort of boring, Ben decided to try making games as an indie developer. For two years, he's worked on Mystic Melee, a physics-based platformer game with hectic combat and unique spells. In 2016, he teamed up with nearby game development and publishing studio Serenity Forge.</text>
+		</history>
+	</histories>
+		
+	<trailers>
+		<trailer>
+			<name>Mystic Melee alpha gameplay</name>
+			<youtube>sOb_2qxxmbw</youtube>
+		</trailer>
+		<trailer>
+			<name>Interview with Chase Bethea of Gamer Complainers</name>
+			<youtube>KQA2ZgTuXNU</youtube>
+		</trailer>
+		<trailer>
+			<name>Early Mystic Melee trailer</name>
+			<youtube>uHEDt1QqAlk</youtube>
+		</trailer>
+	</trailers>
+	
+	<awards>
+		<award>
+			<description>EVO Indie Showcase - Mystic Melee @ The Mix</description>
+			<info>EVO Championship Series, Las Vegas, July 15, 2016</info>
+		</award>
+	</awards>
+	<!--
+	<quotes>
+		<quote>
+			<description>This is a rather insignificant quote by a highly important person.</description>
+			<name>Person Name</name>
+			<website>Website</website>
+			<link>http://www.website.com/</link>
+		</quote>
+		<quote>
+			<description>An extremely positive quote from a rather insignificant person. Also great.</description>
+			<name>Some Guy</name>
+			<website>This Page Is Visited By 12 Visitors A Month</website>
+			<link>http://geocities.blog.com/</link>
+		</quote>
+		<quote>
+			<description>I pretend to love this game even though I do not actually understand it.</description>
+			<name>Pretentious Bastard</name>
+			<website>Artsy Page</website>
+			<link>http://art.tumblr.com/</link>
+		</quote>
+		<quote>
+			<description>HOLY SHIT SO AMAZING</description>
+			<name>Caps Guy</name>
+			<website>Angry Review</website>
+			<link>http://thispage.net/angrytube</link>
+		</quote>
+	</quotes>-->
+	
+	<press-can-request-copy>TRUE</press-can-request-copy> <!-- can be true or false -->
+	<monetization-permission>monetize</monetization-permission> <!-- can be: 	false (no video allowed),
+																			 	ask (permission on case-per-case basis),
+																			 	non-commercial (no monetization allowed),
+																			 	monetize (full permission) -->	
+	<!--<additionals>
+		<additional>
+			<title>Company Link #1</title>
+			<description>This link is a link that might be useful. You can check it out at</description>
+			<link>http://somemusicsite.com/thislink</link>
+		</additional>
+	</additionals>-->
+	
+	<credits>
+		<credit>
+			<person>Ben Hopkins</person>
+			<role>Game Design, Programming, Artist</role>
+		</credit>
+	</credits>
+	
+	<contacts>
+		<contact>
+			<name>Inquiries</name>
+			<mail>ben@hypotheticalgames.com</mail>
+		</contact>
+		<contact>
+			<name>Twitter</name>
+			<link>http://twitter.com/benhhopkins</link>
+		</contact>
+		<contact>
+			<name>Web</name>
+			<link>hypotheticalgames.com</link>
+		</contact>
+	</contacts>
+</game>
