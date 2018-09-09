@@ -1,2 +1,71 @@
-.background{background-color:#424254}.navbar{margin-bottom:0;border-bottom-color:#D95555;background-color:#A7D5B1;border-bottom-width:10px}.panel-footer{border-top-width:1px;border-top-color:#D95555;background-color:#A7D5B1}.navbar-toggle{border-color:#759888}.icon-bar{background-color:#000}.active{background-color:#D95555}.row{float:left}.col-tumblr{max-width:540px}.col-twitter{padding-top:15px}.tumblr_post{border-radius:0;background-color:#A7D5B1;padding-top:0;text-align:left;margin-top:15px;margin-bottom:15px;box-shadow:0 10px #759888}.tumblr_post img{text-align:center;max-width:100%;width:100%}.tumblr_post p{padding:10px}.tumblr_title{font-size:18px;text-emphasis:disc;padding:0}.tumblr_body{margin:20px}.tumblr_caption{margin:20px}.padding-0{padding:0}.panel{margin-top:15px;margin-bottom:15px;border-top-radius:0;border-width:0;background-color:#A7D5B1}.gametext{margin-top:10px}strong{color:#D95555}#topnav a{color:#000}a.twitter-timeline{display:inline-block;padding:6px 12px 6px 30px;margin:10px 0}
+@import url("https://fonts.googleapis.com/css?family=Kosugi+Maru|Raleway");
+body {
+  font-family: "Raleway", Helvetica, sans-serif;
+  background-color: #899e86;
+}
+
+.card {
+  border-color: #5a2530;
+  border-radius: 1px;
+  font-size: 14px;
+}
+
+.card-body {
+  padding: 0.5rem;
+}
+
+.card-body p {
+  margin-bottom: 0.25rem;
+}
+
+.card-body img {
+  text-align: center;
+}
+
+.crop {
+  overflow: hidden;
+  height: 150px;
+}
+
+.cropsmall {
+  overflow: hidden;
+  height: 50px;
+}
+
+.titlefont {
+  font-family: "Kosugi Maru", Helvetica, sans-serif;
+}
+
+.container {
+  max-width: 900px;
+}
+
+strong {
+  color: #f5333d;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 30px;
+  /* Margin bottom by footer height */
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  /* Set the fixed height of the footer here */
+  line-height: 30px;
+  /* Vertically center the text there */
+  background-color: #5a2530;
+  color: #899e86;
+  font-size: 12px;
+  font: "Raleway", Helvetica, sans-serif;
+}
+
 /*# sourceMappingURL=styles.css.map */

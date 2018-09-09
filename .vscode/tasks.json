@@ -1,0 +1,28 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "sass css/styles.scss css/styles.css",
+            "problemMatcher": [
+                "$node-sass"
+            ]
+        },
+        {
+            "label": "run",
+            "type": "shell",
+            "command": "http-server"
+        },
+        {
+            "label": "build and run",
+            "dependsOn": ["build", "run"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

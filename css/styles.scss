@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Kosugi+Maru|Raleway');
+
+$font_title: "Kosugi Maru", Helvetica, sans-serif;
+$font_text: "Raleway", Helvetica, sans-serif;
+$bg_bg: #899e86;
+$bg_panel: rgb(231, 206, 191);
+$selected_color: rgb(245, 51, 61);
+$shadow: #5a2530;
+$black: #000000;
+
+body {
+	font-family: $font_text;
+	background-color: $bg_bg;
+}
+
+.card {
+    border-color: $shadow;
+    border-radius: 1px;
+    font-size: 14px;
+}
+
+.card-body {
+    padding: 0.5rem;
+}
+
+.card-body p {
+    margin-bottom: 0.25rem;
+}
+
+.card-body img {
+    text-align: center;
+}
+
+.crop {
+    overflow: hidden;
+    height: 150px;
+}
+
+.cropsmall {
+    overflow: hidden;
+    height: 50px;
+}
+
+.titlefont {
+	font-family: $font_title;
+}
+
+.container {
+    max-width: 900px;
+}
+
+strong {
+	color: $selected_color;
+}
+
+// sticky footer
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 30px; /* Margin bottom by footer height */
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px; /* Set the fixed height of the footer here */
+  line-height: 30px; /* Vertically center the text there */
+  background-color: $shadow;
+  color: $bg_bg;
+  font-size: 12px;
+  font: $font_text;
+}
