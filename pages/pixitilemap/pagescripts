@@ -1,0 +1,7 @@
+<script src="pixi.dev.js"></script>
+<script src="tilemap.js"></script>
+<script src="menu.js"></script>
+<script src="main.js"></script>
+<script>
+    $("#demo").append(Main("", $("article:first").width(), $("article:first").width() / 1.5));
+</script>

@@ -1,74 +1,515 @@
-@import url('https://fonts.googleapis.com/css?family=Kosugi+Maru|Raleway');
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
-$font_title: "Kosugi Maru", Helvetica, sans-serif;
-$font_text: "Raleway", Helvetica, sans-serif;
-$bg_bg: #899e86;
-$bg_panel: rgb(231, 206, 191);
-$selected_color: rgb(245, 51, 61);
-$shadow: #5a2530;
-$black: #000000;
+$font-text: Lato, Helvetica, sans-serif;
+$font-code: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+$bg-color: #3e5f50;
+$bg-color-text: rgb(255, 255, 255);
+$bg-color-media: #272822;
+$font-color: rgb(20, 20, 20);
+$font-color-link: rgb(25, 201, 127);
+$font-color-strong: rgb(255, 21, 79);
+$font-color-media: #f8f8f2;
+
+// scaling, method credit https://css-tricks.com/optimizing-large-scale-displays/
+$base-font-size: 1em;
+$base-line-height: 1.5;
+$header-line-height: 1.25;
+$base-spacing: $base-font-size;
+
+// breakpoints
+// rather than put the breakpoints on common resolutions, why not put them in between?
+// This way, widths slightly below the common one won't look tiny.
+$bp-mini: 28em; // 448px
+$bp-small: 40em; // 640px
+$bp-medium: 60em; // 960px
+$bp-large: 82em; // 1312px
+$bp-xlarge: 100em; // 1600px
+$bp-xxlarge: 150em; // 2400px
+$bp-xxxlarge: 200em; // 3200px
+
+// media queries
+$mq-mini: "(min-width: #{$bp-mini})";
+$mq-small: "(min-width: #{$bp-small})";
+$mq-medium: "(min-width: #{$bp-medium})";
+$mq-large: "(min-width: #{$bp-large})";
+$mq-xlarge: "(min-width: #{$bp-xlarge})";
+$mq-xxlarge: "(min-width: #{$bp-xxlarge})";
+$mq-xxxlarge: "(min-width: #{$bp-xxxlarge})";
+$mq-retina: "(-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi)";
 
 body {
-	font-family: $font_text;
-	background-color: $bg_bg;
+    margin: 0px;
+    //overflow-x: hidden;
+
+    background-color: $bg-color;
+    color: $font-color;
+    
+    font-family: $font-text;
+    font-size: $base-font-size*.9;
+    line-height: $base-line-height*.9;
+
+    @media #{$mq-small} {
+        font-size: $base-font-size;
+        line-height: $base-line-height;
+    }
+
+    @media #{$mq-medium} {
+        font-size: $base-font-size*1.05;
+        line-height: $base-line-height*1.05;
+    }
+  
+    @media #{$mq-xlarge} {
+        font-size: $base-font-size*1.1;
+    }
+  
+    @media #{$mq-xxlarge} {
+        font-size: $base-font-size*1.2;
+    }
+
+    @media #{$mq-xxxlarge} {
+        font-size: $base-font-size*1.4;
+    }
 }
 
-.card {
-    border-color: $shadow;
-    border-radius: 1px;
-    font-size: 14px;
+main {
+    display: block;
+    grid-template-columns: 18% 82%;
+
+    margin: 0.5em 0%;
+  
+    @media #{$mq-mini} {
+        display: grid;
+        margin: 1em 1% 1em 0%;
+    }
+
+    @media #{$mq-small} {
+        display: grid;
+        margin: 1em 4% 1em 0%;
+    }
+
+    @media #{$mq-medium} {
+        display: grid;
+        margin: 1em 10% 1em 5%;
+    }
+  
+    @media #{$mq-large} {
+        display: grid;
+        margin: 1em 28% 1em 19%;
+    }
+  
+    @media #{$mq-xlarge} {
+        display: grid;
+        margin: 1em 29% 1em 20%;
+    }
+
+    @media #{$mq-xxlarge} {
+        display: grid;
+        margin: 1em 31% 1em 25%;
+    }
+
+    @media #{$mq-xxxlarge} {
+        display: grid;
+        margin: 1em 35% 1em 31%;
+    }
 }
 
-.card-body {
-    padding: 0.5rem;
-}
-
-.card-body p {
-    margin-bottom: 0.25rem;
-}
-
-.card-body img {
-    text-align: center;
-}
-
-.crop {
+article {
+    padding: 0em;
+    background-color: $bg-color-text;
+    border-radius: 4px;
+    //box-shadow: 0px 0px 8em #272822;
     overflow: hidden;
-    height: 150px;
 }
 
-.cropsmall {
-    overflow: hidden;
-    height: 50px;
-}
-
-.titlefont {
-	font-family: $font_title;
-}
-
-.container {
-    max-width: 900px;
+a {
+    color: $font-color-link;
+    text-decoration: underline;
+  
+    &:visited {
+        color: darken($font-color-link, 20%);
+    }
+    &:hover,
+    &:focus {
+      color: lighten($font-color-link, 20%);
+    }
 }
 
 strong {
-	color: $selected_color;
+    color: $font-color-strong;
 }
 
-// sticky footer
-html {
-  position: relative;
-  min-height: 100%;
+h1, h2, h3, h4, h5, h6 {
+  padding: 0em 1.5em 0em 1.5em;
+  margin-bottom: 0em;
 }
-body {
-  margin-bottom: 30px; /* Margin bottom by footer height */
+
+p {
+    padding: 0.5em 1em 0.5em 1em;
+    margin: 0 0 $base-spacing;
+
+    @media #{$mq-medium} {
+        padding: 0.5em 2em 0.5em 2em;
+    }
+
+    @media #{$mq-xlarge} {
+        padding: 0.5em 3em 0.5em 3em;
+    }
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 30px; /* Set the fixed height of the footer here */
-  line-height: 30px; /* Vertically center the text there */
-  background-color: $shadow;
-  color: $bg_bg;
-  font-size: 12px;
-  font: $font_text;
+
+.media {
+    margin: -.5em 0em .5em 0em;
+    color: $font-color-media;
+    background-color: $bg-color-media;
+    text-align: center;
+    line-height: 0em;
+    padding: 0em;
+}
+
+.media img {
+    max-width: 100%;
+    height: auto;
+    image-rendering: pixelated;
+}
+
+.media-group {
+    margin: -.5em 0em .5em 0em;
+    padding: 1em 0em 1em 0em;
+    color: $font-color-media;
+    background-color: $bg-color-media;
+    text-align: center;
+    line-height: 1em;
+}
+
+.media-group img {
+    max-width: 100%;
+    height: auto;
+    image-rendering: pixelated;
+}
+
+.media-group img {
+    margin: 0.5em;
+}
+
+.media-embed {
+    position: relative;
+    width: 100.2%;
+    height: 0;
+    padding: 0em 0em 56.25% 0em;
+}
+
+.embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.caption {
+    font-style: italic;
+    font-size: 0.9em;
+    text-align: center;
+    padding: 0em 2em 1em 2em;
+    color: $bg-color;
+}
+
+blockquote {
+    background-color: $bg-color-media;
+    border-left: .5em solid $font-color-link;
+    color: $font-color-media;
+    margin: -.5em 1em .5em 1em;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+#header {
+    text-align: center;
+    padding-bottom: 1em;
+    font-family: $font-code;
+    line-height: 1.3em;
+    z-index: 1;
+    direction: rtl;
+
+    @media #{$mq-mini} {
+        padding-left: 1em;
+        padding-right: .5em;
+        text-align: right;
+    }
+
+    @media #{$mq-small} {
+        padding-right: 1em;
+    }
+}
+
+a.header {
+    color: $font-color-link;
+    text-decoration: none;
+  
+    &:visited {
+        color: $font-color-link;
+    }
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+        color: lighten($font-color-link, 20%);
+    }
+}
+
+#footer {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    color: $font-color-media;
+    background-color: $bg-color-media;
+    font-size: 16px;
+    font-family: $font-text;
+}
+
+.home-project {
+    margin: .2em;
+}
+
+.home-grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.home-grid article {
+    max-width: 100%;
+    margin: .2em;
+}
+
+.home-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 0em 1em;
+}
+
+.home-media {
+    margin: 0em 0em .5em 0em;
+    color: $font-color-media;
+    background-color: $bg-color-media;
+    text-align: center;
+    line-height: 0em;
+    padding: 0em;
+    max-height: 120px;
+    overflow: hidden;
+}
+
+.home-media img {
+    min-width: 100%;
+    image-rendering: pixelated;
+}
+
+/* PrismJS 1.15.0
+https://prismjs.com/download.html#themes=prism-okaidia&languages=css+clike+javascript+c+csharp+cpp&plugins=toolbar */
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+ code,
+ pre {
+     color: $font-color-media;
+     background: none;
+     text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+     font-family: $font-code;
+     text-align: left;
+     white-space: pre;
+     word-spacing: normal;
+     word-break: normal;
+     word-wrap: normal;
+     line-height: 1.5;
+ 
+     -moz-tab-size: 4;
+     -o-tab-size: 4;
+     tab-size: 4;
+ 
+     -webkit-hyphens: none;
+     -moz-hyphens: none;
+     -ms-hyphens: none;
+     hyphens: none;
+ }
+ 
+ /* Code blocks */
+ pre {
+     padding: .1em .5em;
+     margin: -.5em 1em .5em 1em;
+     overflow: auto;
+     border-radius: 0.3em;     
+
+    @media #{$mq-small} {
+        font-size: 0.9em;
+    }
+  
+    @media #{$mq-large} {
+        font-size: 0.8em;
+        margin: -.5em 2em .5em 2em;
+    }
+ }
+ 
+ :not(pre) > code,
+ pre {
+     background: $bg-color-media;
+ }
+ 
+ /* Inline code */
+ :not(pre) > code {
+     padding: .1em;
+     border-radius: .3em;
+     white-space: normal;
+
+    @media #{$mq-small} {
+        font-size: 0.9em;
+    }
+  
+    @media #{$mq-large} {
+        font-size: 0.8em;
+    }
+ }
+ 
+ .token.comment,
+ .token.prolog,
+ .token.doctype,
+ .token.cdata {
+     color: slategray;
+ }
+ 
+ .token.punctuation {
+     color: #f8f8f2;
+ }
+ 
+ .namespace {
+     opacity: .7;
+ }
+ 
+ .token.property,
+ .token.tag,
+ .token.constant,
+ .token.symbol,
+ .token.deleted {
+     color: #f92672;
+ }
+ 
+ .token.boolean,
+ .token.number {
+     color: #ae81ff;
+ }
+ 
+ .token.selector,
+ .token.attr-name,
+ .token.string,
+ .token.char,
+ .token.builtin,
+ .token.inserted {
+     color: #a6e22e;
+ }
+ 
+ .token.operator,
+ .token.entity,
+ .token.url,
+ .language-css .token.string,
+ .style .token.string,
+ .token.variable {
+     color: #f8f8f2;
+ }
+ 
+ .token.atrule,
+ .token.attr-value,
+ .token.function,
+ .token.class-name {
+     color: #e6db74;
+ }
+ 
+ .token.keyword {
+     color: #66d9ef;
+ }
+ 
+ .token.regex,
+ .token.important {
+     color: #fd971f;
+ }
+ 
+ .token.important,
+ .token.bold {
+     font-weight: bold;
+ }
+ .token.italic {
+     font-style: italic;
+ }
+ 
+ .token.entity {
+     cursor: help;
+ }
+ 
+ div.code-toolbar {
+     position: relative;
+ }
+ 
+ div.code-toolbar > .toolbar {
+     position: absolute;
+     top: .3em;
+     right: .2em;
+     transition: opacity 0.3s ease-in-out;
+     opacity: 0;
+ }
+ 
+ div.code-toolbar:hover > .toolbar {
+     opacity: 1;
+ }
+ 
+ div.code-toolbar > .toolbar .toolbar-item {
+     display: inline-block;
+ }
+ 
+ div.code-toolbar > .toolbar a {
+     cursor: pointer;
+ }
+ 
+ div.code-toolbar > .toolbar button {
+     background: none;
+     border: 0;
+     color: inherit;
+     font: inherit;
+     line-height: normal;
+     overflow: visible;
+     padding: 0;
+     -webkit-user-select: none; /* for button */
+     -moz-user-select: none;
+     -ms-user-select: none;
+ }
+ 
+ div.code-toolbar > .toolbar a,
+ div.code-toolbar > .toolbar button,
+ div.code-toolbar > .toolbar span {
+     color: #bbb;
+     font-size: .8em;
+     padding: 0 .5em;
+     background: #f5f2f0;
+     background: rgba(224, 224, 224, 0.2);
+     box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+     border-radius: .5em;
+ }
+ 
+ div.code-toolbar > .toolbar a:hover,
+ div.code-toolbar > .toolbar a:focus,
+ div.code-toolbar > .toolbar button:hover,
+ div.code-toolbar > .toolbar button:focus,
+ div.code-toolbar > .toolbar span:hover,
+ div.code-toolbar > .toolbar span:focus {
+     color: inherit;
+     text-decoration: none;
+ } 
+
+pre::-webkit-scrollbar, ::-webkit-scrollbar-track {
+    background-color: transparent;
+    height: 10px;
+}
+
+pre::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: $bg-color;
 }

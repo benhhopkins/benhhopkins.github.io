@@ -1,24 +1,44 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "compile",
             "type": "shell",
             "command": "sass css/styles.scss css/styles.css",
-            "problemMatcher": [
-                "$node-sass"
-            ]
+            "problemMatcher": {
+                "owner": "sass",
+                "fileLocation": ["relative", "${workspaceRoot}/css"],
+                "severity": "error",
+                "pattern": 
+                [
+                    {
+                        "regexp": " *(.*)",
+                        "message": 1
+                    },
+                    {
+                        "regexp": "^.*\\\\(.*\\.scss) (\\d+):(\\d+).*$",
+                        "file": 1,
+                        "line": 2,
+                        "column": 3
+                        //"message": 4
+                    }
+                ]
+            }
         },
         {
             "label": "run",
             "type": "shell",
-            "command": "http-server"
+            "command": "http-server",
+            "dependsOn": ["compile"]
         },
         {
             "label": "build and run",
-            "dependsOn": ["build", "run"],
+            "dependsOn": ["run"]
+        },
+        {
+            "type": "gulp",
+            "task": "default",
+            "problemMatcher": [],
             "group": {
                 "kind": "build",
                 "isDefault": true
