@@ -8,23 +8,28 @@
     <meta name="author" content="Ben Hopkins">
     <link rel="icon" href="/favicon.png">
 
-    <title>Pixi.js Tilemap</title>
+    <title><%title%></title>
 
     <link href="/css/styles.css" rel="stylesheet">
 </head>
 
 <body>
+    <%header%>
     <main <%pagelang%>>
-<%header%>
         <article>
 <%article%>
         </article>
     </main>
-<%footer%>
+    <div class="right">
+        <div class="bgchanger" id="bgdark"></div>
+        <div class="bgchanger" id="bglight"></div>
+    </div>
+    <%footer%>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script src="/js/prism.js"></script>
+    <script src="/js/bgcolor.js"></script>
 <%pagescripts%>
 </body>
 

@@ -14,7 +14,6 @@ markdown.use(markdownattrs);
 gulp.task('compile', [], function () {
     var currentPath = '';
 
-    var template = fs.readFileSync("pages/template.html", "utf8");
     var header = fs.readFileSync("pages/header.html", "utf8");
     var footer = fs.readFileSync("pages/footer.html", "utf8");
 
@@ -34,13 +33,24 @@ gulp.task('compile', [], function () {
         .pipe(rename(function (path) {
             currentPath = path.dirname;
             path.basename = "index";
+            console.log(currentPath);
             return path;
         }))
         .pipe(map(function (file, cb) {
             var fileContents = file.contents.toString();
+            var template = fs.readFileSync("pages/template.html", "utf8");
+
             template = template.replace("<%article%>", fileContents);
             template = template.replace("<%header%>", header);
             template = template.replace("<%footer%>", footer);
+
+            if (fs.existsSync("pages/" + currentPath + "/title")) {
+                var pagelang = fs.readFileSync("pages/" + currentPath + "/title", "utf8");
+                template = template.replace("<%title%>", pagelang);
+            }
+            else {
+                template = template.replace("<%title%>", "Ben Hopkins Games");
+            }
 
             if (fs.existsSync("pages/" + currentPath + "/pagelang")) {
                 var pagelang = fs.readFileSync("pages/" + currentPath + "/pagelang", "utf8");
@@ -52,14 +62,11 @@ gulp.task('compile', [], function () {
 
             if (fs.existsSync("pages/" + currentPath + "/pagescripts")) {
                 var pagescripts = fs.readFileSync("pages/" + currentPath + "/pagescripts", "utf8");
-                template = template.replace("<%pagescripts%>", pagelang);
+                template = template.replace("<%pagescripts%>", pagescripts);
             }
             else {
                 template = template.replace("<%pagescripts%>", "");
             }
-            
-            console.log(currentPath);
-            console.log(fileContents);
             
             file.contents = new Buffer(template);
             cb(null, file);

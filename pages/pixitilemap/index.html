@@ -14,14 +14,14 @@
 </head>
 
 <body>
-    <main class="lang-javascript">
-<div id="header">
+    <div id="header">
     <h2 style="padding: 0em; margin-bottom: .5em;"><a href="/index.html" class="header">Ben Hopkins</a></h2>
     <a href="http://twitter.com/benhhopkins"><img style="width: 2rem; height: 2rem;" src="/images/twitter.png"></a>
 </div>
+    <main class="lang-javascript">
         <article>
 <h1>Pixi.js Tilemap</h1>
-<p><em><strong>Warning:</strong> Written in Fall '14, possibly outdated! More recently, I'd prefer to use typescript and <a href="https://phaser.io/">Phaser</a> to build HTML5 games (which is built on Pixi.js).</em></p>
+<p class="small"><em><strong>Warning:</strong> Written in Fall '14, possibly outdated! More recently, I'd prefer to use typescript and <a href="https://phaser.io/">Phaser</a> to build HTML5 games (which is built on Pixi.js).</em></p>
 <p id="demo" class="media"></p>
 <p class="caption">Try it above.</p>
 <p><a href="http://www.pixijs.com/" title="Pixi.js">Pixi.js</a>  is a lightweight 2D webGL renderer. This post details how to extend it with a Tilemap class. It allows for reporting mouse hovers and clicks, dragging to scroll, and zooming (here, at integer amounts to preserve the pixel art).</p>
@@ -209,12 +209,23 @@ The Y position is a simplified calculation since there is no menu above the map 
 
         </article>
     </main>
-<footer id="footer"><a href="/">Home</a></footer>
+    <div class="right">
+        <div class="bgchanger" id="bgdark"></div>
+        <div class="bgchanger" id="bglight"></div>
+    </div>
+    <footer id="footer"><a href="/">Home</a></footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script src="/js/prism.js"></script>
-class="lang-javascript"
+    <script src="/js/bgcolor.js"></script>
+<script src="pixi.dev.js"></script>
+<script src="tilemap.js"></script>
+<script src="menu.js"></script>
+<script src="main.js"></script>
+<script>
+    $("#demo").append(Main("", $("article:first").width(), $("article:first").width() / 1.5));
+</script>
 </body>
 
 </html>

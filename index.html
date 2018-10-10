@@ -8,38 +8,47 @@
     <meta name="author" content="Ben Hopkins">
     <link rel="icon" href="/favicon.png">
 
-    <title>Pixi.js Tilemap</title>
+    <title>Ben Hopkins Games</title>
 
     <link href="/css/styles.css" rel="stylesheet">
 </head>
 
 <body>
+    <div id="header">
+        <h2 style="padding: 0em; margin-bottom: .5em;"><a href="/index.html" class="header">Ben Hopkins</a></h2>
+        <a href="http://twitter.com/benhhopkins"><img style="width: 2rem; height: 2rem;" src="/images/twitter.png"></a>
+    </div>
     <main>
-        <div id="header">
-            <h2 style="padding: 0em; margin-bottom: .5em;"><a href="/index.html" class="header">Ben Hopkins</a></h2>
-            <a href="http://twitter.com/benhhopkins"><img style="width: 2rem; height: 2rem;" src="/images/twitter.png"></a>
-        </div>
-        <div>
-            <article class="home-project">
-                <h1>Mystic Melee</h1>
-            </article>
-            <div class="home-grid">
-                <article>
-                    <p class="home-media"><img src="/pages/skysiege/preview.png" /></p>
-                    <a class="home-title" href="/pages/skysiege">Skysiege</a>
-                </article>
-                <article>
-                    <p class="home-media"><img src="/pages/pixitilemap/preview.png" /></p>
-                    <a class="home-title" href="/pages/pixitilemap">Pixi.js Tilemap</a>
-                </article>
-            </div>
-        </div>
+        <article>
+            <p class="home-media"><img src="/pages/mysticmelee/preview.png" /></p>
+            <a class="home-title" href="http://mysticmelee.com">Mystic Melee</a>
+        </article>
+        <article class="half">
+            <p class="home-media"><img src="/pages/skysiege/preview.png" /></p>
+            <a class="home-title" href="/pages/skysiege">Skysiege</a>
+            <p class="home-caption">Gameboy Jam 5 game</p>
+        </article>
+        <article class="half">
+            <p class="home-media"><img src="/pages/dropship/preview.png" /></p>
+            <a class="home-title" href="/pages/dropship">Dropship: Orcs in Space</a>
+            <p class="home-caption">Ludum Dare 41 game</p>
+        </article>
+        <article class="half">
+            <p class="home-media"><img src="/pages/pixitilemap/preview.png" /></p>
+            <a class="home-title" href="/pages/pixitilemap">Pixi.js Tilemap</a>
+            <p class="home-caption">old tutorial</p>
+        </article>
     </main>
+    <div class="right">
+        <div class="bgchanger" id="bgdark"></div>
+        <div class="bgchanger" id="bglight"></div>
+    </div>
     <footer id="footer"><a href="/">Home</a></footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script src="/js/prism.js"></script>
+    <script src="/js/bgcolor.js"></script>
 </body>
 
 </html>

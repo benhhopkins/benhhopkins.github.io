@@ -1,5 +1,5 @@
 # Pixi.js Tilemap
-***Warning:** Written in Fall '14, possibly outdated! More recently, I'd prefer to use typescript and [Phaser](https://phaser.io/) to build HTML5 games (which is built on Pixi.js).*
+***Warning:** Written in Fall '14, possibly outdated! More recently, I'd prefer to use typescript and [Phaser](https://phaser.io/) to build HTML5 games (which is built on Pixi.js).* {.small}
 
 <p id="demo" class="media"></p>
 
