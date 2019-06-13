@@ -11,7 +11,7 @@ const webserver = require('gulp-webserver');
 
 markdown.use(markdownattrs);
 
-gulp.task('compile', [], function () {
+gulp.task('compile', function () {
     var currentPath = '';
 
     var header = fs.readFileSync("pages/header.html", "utf8");
@@ -21,7 +21,7 @@ gulp.task('compile', [], function () {
         .pipe(map(function (file, cb) {
             var md = file.contents.toString();
             var html = markdown.render(md);
-            file.contents = new Buffer(html);
+            file.contents = Buffer.from(html);
             cb(null, file);
         }))
         .pipe(rename(function(path) {
@@ -68,7 +68,7 @@ gulp.task('compile', [], function () {
                 template = template.replace("<%pagescripts%>", "");
             }
             
-            file.contents = new Buffer(template);
+            file.contents = Buffer.from(template);
             cb(null, file);
         }))
         .pipe(gulp.dest('./pages'));
@@ -80,9 +80,9 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('css'));
 });
 
-gulp.task('default', ['compile', 'sass'], function() {
-    gulp.watch('pages/*/*.md', ['compile']);
-    gulp.watch('css/*.scss', ['sass']);
+gulp.task('default', gulp.series(['compile', 'sass'], function() { 
+    gulp.watch('pages/*/*.md').on('change', gulp.series('compile'));
+    gulp.watch('css/*.scss').on('change', gulp.series('sass'));
 
     gulp.src('./')
     .pipe(webserver({
@@ -90,4 +90,4 @@ gulp.task('default', ['compile', 'sass'], function() {
         directoryListing: false,
         open: true
     }));
-});
+}));

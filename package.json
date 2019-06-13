@@ -1,0 +1,32 @@
+{
+  "name": "bhopkins.net",
+  "version": "1.0.0",
+  "description": "website",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benhhopkins/bhopkins.net.git"
+  },
+  "keywords": [
+    "website"
+  ],
+  "author": "benhopkins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benhhopkins/bhopkins.net/issues"
+  },
+  "homepage": "https://github.com/benhhopkins/bhopkins.net#readme",
+  "devDependencies": {
+    "fs": "0.0.1-security",
+    "gulp": "^4.0.2",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-webserver": "^0.9.1",
+    "map-stream": "0.0.7",
+    "markdown-it": "^8.4.2",
+    "markdown-it-attrs": "^2.4.1"
+  }
+}

@@ -7,10 +7,12 @@
             "command": "sass css/styles.scss css/styles.css",
             "problemMatcher": {
                 "owner": "sass",
-                "fileLocation": ["relative", "${workspaceRoot}/css"],
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}/css"
+                ],
                 "severity": "error",
-                "pattern": 
-                [
+                "pattern": [
                     {
                         "regexp": " *(.*)",
                         "message": 1
@@ -20,7 +22,6 @@
                         "file": 1,
                         "line": 2,
                         "column": 3
-                        //"message": 4
                     }
                 ]
             }
@@ -29,11 +30,15 @@
             "label": "run",
             "type": "shell",
             "command": "http-server",
-            "dependsOn": ["compile"]
+            "dependsOn": [
+                "compile"
+            ]
         },
         {
             "label": "build and run",
-            "dependsOn": ["run"]
+            "dependsOn": [
+                "run"
+            ]
         },
         {
             "type": "gulp",
@@ -43,6 +48,11 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "type": "gulp",
+            "task": "compile",
+            "problemMatcher": []
         }
     ]
 }
