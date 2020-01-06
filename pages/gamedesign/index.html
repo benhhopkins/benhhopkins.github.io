@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Games by Ben Hopkins">
+    <meta name="author" content="Ben Hopkins">
+    <link rel="icon" href="/favicon.png">
+
+    <title>Ben Hopkins Games</title>
+
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="header">
+    <h2 style="padding: 0em; margin-bottom: .5em;"><a href="/index.html" class="header">Ben Hopkins</a></h2>
+    <a href="http://twitter.com/benhhopkins"><img style="width: 2rem; height: 2rem;" src="/images/twitter.png"></a>
+</div>
+    <main >
+        <article>
+<h1>Game design notes</h1>
+<p class="small"><em>updated fall '19</em></p>
+<p>A few collected thoughts on game mechanics and game design issues.</p>
+<h3>Save Scumming</h3>
+<p>You're one turn away from finishing The Pyramids, the first big investment for your young civilization. You hit next turn and... Alexander has completed The Pyramids! No worries, there's an autosave from 5 turns ago. Turn back time a few hundred years - work a hill here, chop a forest there. The Pyramids are yours!</p>
+<p>Save scumming is generally preceived as cheating by gaming communities, and indeed, it feels scummy to do. There's ways for designers to forcefully prevent it. Some games don't allow saves at all, or only have a frequent and automatic autosave. However, I feel in some cases where player would tempted to reload an old save (whether or not the game allows it), there is a game design issue that could be improved.</p>
+<p>The topic mostly applies to longform strategy games and to some games in the rougelite genre. It's fun to become invested in your current playthrough of these games, building an empire or a character over time. These games also need points of leverage to be exciting - events when you can win or lose big.</p>
+<p>I'd divide scenarios where players may like to save-scum into two categories:</p>
+<ol>
+<li>That last fight did not go well. I could have performed better.</li>
+<li>With newfound knowledge, I realize the desicions I made recently were significantly suboptimal.</li>
+</ol>
+<p>Under most circumstances I don't find (1) to be offensive. If it's an issue of execution (of strategy or mechanics), and the player can already figure out how to do better, reloading a save and doing so immediately seems good. It doesn't seem neccessary to force the player to grind out another playthrough to capitalize on their own growth.</p>
+<p>On the other hand, if the player wants to <em>go back in time</em> because some future knowledge is so valuable (scenario 2), the game has a design problem.</p>
+<h1>Unlockables</h1>
+<p>good:</p>
+<ul>
+<li>making game simpler to start, complex once you're experienced
+<ul>
+<li>graph of how things should unlocked (x^.2 curve)</li>
+<li>unlocks sources (earliest unlocked to latest)
+<ol>
+<li>short playtime requirements, with some variety in characters/settings</li>
+<li>challenges to win with specific strategies (not too difficult)</li>
+<li>mastery challenges - winning at each difficultly level (with rewards as cosmetic upgrades or even harder difficulties)</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>giving players specific and fun extra challenges to complete (with tangible reward)</li>
+<li>yes, game feels longer, encourages mastery</li>
+</ul>
+<p>bad:</p>
+<ul>
+<li>forcing extremely tedious trials, for the sake of more gameplay hours?</li>
+<li>obviously, real money costs (unless game is free)</li>
+</ul>
+<p><img src="/pages/dropship/dropship.png" alt="Dropship"> {.media}
+<a href="https://benhhopkins.itch.io/dropship">Play on itch.io</a> {.button-group}
+Here’s the <a href="https://github.com/benhhopkins/LD41">source</a>.</p>
+
+        </article>
+    </main>
+    <div class="right">
+        <div class="bgchanger" id="bgdark"></div>
+        <div class="bgchanger" id="bglight"></div>
+    </div>
+    <footer id="footer"><a href="/">Home</a></footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/bgcolor.js"></script>
+
+</body>
+
+</html>
