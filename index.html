@@ -11,32 +11,83 @@
     <title>Ben Hopkins Games</title>
 
     <link href="/css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&family=Merriweather:wght@400&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div id="header">
-        <h2 style="padding: 0em; margin-bottom: .5em;"><a href="/index.html" class="header">Ben Hopkins</a></h2>
-        <a href="http://twitter.com/benhhopkins"><img style="width: 2rem; height: 2rem;" src="/images/twitter.png"></a>
+        <h2 class="header-item-top"><a href="/index.html" class="nav">Ben Hopkins</a></h2>
+        <h4 class="header-item"><a href="/index.html#projects" class="nav">Projects</a></h4>
+        <h5 class="header-item"><a href="/index.html#programming" class="nav">Development</a></h5>
+        <h5 class="header-item"><a href="/index.html#art" class="nav">Art</a></h5>
+        <h5 class="header-item"><a href="/index.html#jams" class="nav">Jams</a></h5>
+        <div class="header-button"><a href="http://twitter.com/benhhopkins"><img src="/images/twitter.png"></a></div>
     </div>
     <main>
         <article>
-            <p class="home-media"><img src="/pages/mysticmelee/preview.png" /></p>
-            <a class="home-title" href="http://mysticmelee.com">Mystic Melee</a>
-        </article>
-        <article class="half">
-            <p class="home-media"><img src="/pages/skysiege/preview.png" /></p>
-            <a class="home-title" href="/pages/skysiege">Skysiege</a>
-            <p class="home-caption">Gameboy Jam 5 game</p>
-        </article>
-        <article class="half">
-            <p class="home-media"><img src="/pages/dropship/preview.png" /></p>
-            <a class="home-title" href="/pages/dropship">Dropship: Orcs in Space</a>
-            <p class="home-caption">Ludum Dare 41 game</p>
-        </article>
-        <article class="half">
-            <p class="home-media"><img src="/pages/pixitilemap/preview.png" /></p>
-            <a class="home-title" href="/pages/pixitilemap">Pixi.js Tilemap</a>
-            <p class="home-caption">old tutorial</p>
+            <section>
+                <h2>Game Development and Design</h2><hr/>
+                <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum.</p>
+                <p><a href="">Link 1</a><a href="">Link 2</a><a href="">Link 3</a></p>
+            </section>
+            <section>
+                <h2 id="projects">Projects</h2><hr/>
+                <div class="home-media" style="cursor:pointer; background-image: url('/pages/mysticmelee/preview.png');" onclick="location.href='http://mysticmelee.com'">
+                    <h2 class="home-title">Mystic Melee</h2>
+                    <div class="home-caption">Platformer and fighting game.</div>
+                </div>
+            </section>
+            <section class="inner-grid">
+                <div>
+                    <h4 id="programming">Development</h4><hr/>
+                    <div class="snippet">
+                        <div><h4><a class="button-small" href="/pages/skysiege">Platformer AI</a></h4><p>Navigate towards goals and use skills effectively in a 2D platformer.</p></div>
+                    </div>
+                    <div class="snippet">
+                        <div><h4><a class="button-small" href="/pages/skysiege">Platformer AI</a></h4><p>Navigate towards goals and use skills effectively in a 2D platformer.</p></div>
+                        <img src="/pages/skysiege/preview.png" />
+                    </div>
+                    <div class="snippet">
+                        <div><h4><a class="button-small" href="/pages/pixitilemap">Pixi.js Tilemap</a></h4><p>Draggable, selectable tilemap in pixi.js</p></div>
+                    </div>
+                </div>
+                <div>
+                    <h4 id="design">Design</h4><hr/>
+                    <div class="snippet">
+                        <div><h4><a class="button-small" href="/pages/skysiege">Platformer AI</a></h4><p>Navigate towards goals and use skills effectively in a 2D platformer.</p></div>
+                    </div>
+                    <div class="snippet">
+                        <div><h4><a class="button-small" href="/pages/skysiege">Platformer AI</a></h4><p>Navigate towards goals and use skills effectively in a 2D platformer.</p></div>
+                        <img src="/pages/skysiege/preview.png" />
+                    </div>
+                </div>
+                <div>
+                    <h4 id="art">Art</h4><hr/>
+                    <div class="snippet">
+                        <div><h4><a class="button-small" href="/pages/skysiege">Platformer AI</a></h4><p>Navigate towards goals and use skills effectively in a 2D platformer.</p></div>
+                        <img src="/pages/skysiege/preview.png" />
+                    </div>
+                    <div class="snippet">
+                        <div><h4><a class="button-small" href="/pages/skysiege">Platformer AI</a></h4><p>Navigate towards goals and use skills effectively in a 2D platformer.</p></div>
+                        <img src="/pages/skysiege/preview.png" />
+                    </div>
+                </div>
+                <div>
+                    <h4 id="gamejams">Game Jams</h4><hr/>
+                    <div class="snippet">
+                        <div><h4><a class="button-small" href="/pages/feralhogs">Feral Hog Simulator</a></h4><p>Ludum Dare 46</p></div>
+                        <img src="/pages/feralhogs/preview.png" />
+                    </div>
+                    <div class="snippet">
+                        <div><h4><a class="button-small" href="/pages/skysiege">Ultra Skysiege</a></h4><p>Gameboy Jam 5</p></div>
+                        <img src="/pages/skysiege/preview.png" />
+                    </div>
+                    <div class="snippet">
+                        <div><h4><a class="button-small" href="/pages/dropship">Dropship: Orcs in Space</a></h4><p>Ludum Dare 41</p></div>
+                        <img src="/pages/dropship/preview.png" />
+                    </div>
+                </div>
+            </section>            
         </article>
     </main>
     <div class="right">
@@ -48,7 +99,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script src="/js/prism.js"></script>
-    <script src="/js/bgcolor.js"></script>
+    <script src="/js/bgcolor.js" type="module"></script>
 </body>
 
 </html>

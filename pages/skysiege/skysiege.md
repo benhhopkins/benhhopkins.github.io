@@ -1,10 +1,8 @@
 # Ultra Skysiege: Pokket
 
-*Fall '16* {.small}
+![Skysiege](/pages/skysiege/skysiege.png) {.hero-image}
 
-![Skysiege](/pages/skysiege/skysiege.png) {.media}
-
-[Play on itch.io](https://benhhopkins.itch.io/ultra-skysiege-pokket) {.button-group}
+[Play on itch.io](https://benhhopkins.itch.io/ultra-skysiege-pokket) {.button .center}
 
 A game for GBJAM5.
 

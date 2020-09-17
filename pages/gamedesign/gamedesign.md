@@ -1,7 +1,5 @@
 # Game design notes
 
-*updated fall '19* {.small}
-
 A few collected thoughts on game mechanics and game design issues.
 
 ### Save Scumming

@@ -1,33 +1,34 @@
 var body = document.getElementsByTagName('body')[0];
+var navs = document.getElementsByClassName('nav');
 var bgdark = document.getElementById('bgdark');
 var bglight = document.getElementById('bglight');
 
-var bgcolorstart = localStorage.getItem('bgcolor');
-if (bgcolorstart == 'dark') {
-    body.style.backgroundColor = '#333333';
-}    
-
-bgdark.style.cursor = 'pointer';
-bgdark.onclick = function() {
-    body.style.backgroundColor = '#333333';
+function setDark() {
+    body.classList.add("bg-dark");
+    body.classList.remove("bg-light");
+    for (let element of navs) {
+        element.classList.add("nav-dark");
+        element.classList.remove("nav-light");
+    }
     localStorage.setItem('bgcolor','dark');
-};
+}
 
-bglight.style.cursor = 'pointer';
-bglight.onclick = function() {
-    body.style.backgroundColor = '#ffffff';
+function setLight() {
+    body.classList.add("bg-light");
+    body.classList.remove("bg-dark");
+    for (let element of navs) {
+        element.classList.add("nav-light");
+        element.classList.remove("nav-dark");
+    }
     localStorage.setItem('bgcolor','light');
-};
+}
 
-bgdark.onmouseover = function() {
-    this.style.outlineColor = '#ff154f';
-};
-bgdark.onmouseout = function() {
-    this.style.outlineColor = '#19c97f';
-};
-bglight.onmouseover = function() {
-    this.style.outlineColor = '#ff154f';
-};
-bglight.onmouseout = function() {
-    this.style.outlineColor = '#19c97f';
-};
+var bgcolorstart = localStorage.getItem('bgcolor');
+if (bgcolorstart == 'light') {
+    setLight();
+} else {
+    setDark();
+}
+
+bgdark.onclick = setDark;
+bglight.onclick = setLight;

@@ -1,21 +1,28 @@
-@import url('https://fonts.googleapis.com/css?family=PT+Serif');
+// font css linked in template.html for speed
 
-$font-text: 'PT Serif', serif;
+%text-normal {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+}
+
+%text-bold {
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+}
+
 $font-code: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-$bg-color: #ffffff;
-$bg-color-dark: #333333;
-$bg-color-text: #ffffff;
-$bg-color-media: #ffffff;
-$bg-color-code: #272822;
-$font-color: #141414;
-$font-color-link: #19c97f;
-$font-color-visited: #a019c9;
-$font-color-strong: #ff154f;
+
+$bg-color-dark: #221d33;
+$bg-color-light: #b5bccc;
+$font-color: #1d1d1d;
+$font-color-link: #0044d6c9;
+$font-color-visited: #1942c9;
+$font-color-strong: #e42756;
 $font-color-media: #f8f8f2;
 
 // scaling, method credit https://css-tricks.com/optimizing-large-scale-displays/
-$base-font-size: 1em;
-$base-line-height: 1.75;
+$base-font-size: 1.1em;
+$base-line-height: 1.65;
 $header-line-height: 1.25;
 
 // breakpoints
@@ -44,14 +51,15 @@ html {
 }
 
 body {
+    @extend %text-normal;
+
     min-height: 100%; 
     margin: 0px;
     width: 100%;
 
-    background-color: $bg-color;
+    background-color: $bg-color-light;
     color: $font-color;
     
-    font-family: $font-text;
     font-size: $base-font-size*.9;
     line-height: $base-line-height*.9;
 
@@ -64,10 +72,10 @@ body {
         "footer";
 
     @media #{$mq-small} {
-        padding-top: 1em;
+        //padding-top: 1em;
         font-size: $base-font-size;
         line-height: $base-line-height;
-        grid-template-columns: 1fr 80% .1fr;
+        grid-template-columns: 1fr;
         grid-template-rows: 1fr auto;
         grid-template-areas: 
             "header main right"
@@ -77,22 +85,22 @@ body {
     @media #{$mq-medium} {
         font-size: $base-font-size*1.05;
         line-height: $base-line-height*1.05;
-        grid-template-columns: 1fr 60% .5fr;
+        grid-template-columns: 10em 80% 1fr;
     }
   
     @media #{$mq-xlarge} {
         font-size: $base-font-size*1.1;
-        grid-template-columns: 1fr 45% 1fr;
+        grid-template-columns: 15em 60% 1fr;
     }
   
     @media #{$mq-xxlarge} {
         font-size: $base-font-size*1.2;
-        grid-template-columns: 1fr 33% 1fr;
+        grid-template-columns: 20em 45% 1fr;
     }
 
     @media #{$mq-xxxlarge} {
         font-size: $base-font-size*1.4;
-        grid-template-columns: 1fr 25% 1fr;
+        grid-template-columns: 30em 35% 1fr;
     }
 }
 
@@ -101,6 +109,7 @@ main {
 
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
     grid-gap: .5em;
     align-content: start;
 }
@@ -108,6 +117,7 @@ main {
 .right {
     grid-area: right;
     display: none;
+    padding-top: 1em;
 
     @media #{$mq-medium} {
         display: block;
@@ -116,30 +126,49 @@ main {
 
 article {
     grid-column: span 2;
-    padding: 0em;
-    background-color: $bg-color-text;
-    //border-radius: .3em;
-    //box-shadow: 0px 0px 8em #272822;
+    background-color: $bg-color-light;
+    height: 100%;
     overflow: hidden;
     
-    border-width: 3px;
+    border-width: 0px;
     border-right: 0px;
     border-left: 0px;
     border-color: $font-color-link;
     border-style: solid;
 }
 
-.half {
-    grid-column: span 2;
+.inner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
 
-    @media #{$mq-small} {
-        grid-column: span 1;
+.snippet {
+    padding: 1em 1.5em .1em 1.5em;
+
+    display: grid;
+    grid-template-columns: 1fr minmax(0, auto);
+
+    > img {
+        grid-column-start: 2;
+        width: 160px;
+        height: 128px;
     }
+
+    > div {
+        grid-column-start: 1;
+
+        > p {
+            padding: 0em .25em 0em 1em;
+        }
+        > h4 {
+            padding: 0em .25em 0em .5em;
+        }
+    }        
 }
 
 a {
     color: $font-color-link;
-    text-decoration: none;
+    text-decoration: underline;
   
     &:visited {
         color: $font-color-visited;
@@ -147,36 +176,64 @@ a {
     &:hover,
     &:focus {
       color: $font-color-strong;
-      text-decoration: underline;
+      text-decoration: none;
+      box-shadow: -4px 0px 0px 0px $bg-color-dark,
+                  4px 0px 0px 0px $bg-color-dark;
+      background: $bg-color-dark;
     }
 }
 
 strong {
     color: $font-color-strong;
+    font-weight: bold;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  padding: 1em 1.5em .5em 1.5em;
-  margin: 0em;
+    @extend %text-bold;
+    padding: 1em 1.5em .1em 1.5em;
+    margin: 0em;
+    line-height: 1.3em;
+}
+
+hr {
+    margin: 0em 1.5em 0em 1.5em;
+    color: adjust-color($bg-color-dark, $alpha: -.5);
 }
 
 p {
-    padding: 0.5em 1em 0.5em 1em;
     margin: 0;
+    padding: 0.5em 3em 0.5em 3em;
 
     @media #{$mq-medium} {
-        padding: 0.5em 2em 0.5em 2em;
+        padding: 0.5em 4em 0.5em 4em;
     }
 
     @media #{$mq-xlarge} {
-        padding: 0.5em 3em 0.5em 3em;
+        padding: 0.5em 5em 0.5em 5em;
+    }
+}
+
+.hero-image {
+    background-color: $bg-color-dark;
+    line-height: 0em;
+    padding: 0em;
+    width: auto;
+    transform: scale(.5);
+    @media #{$mq-medium} {
+        transform: scale(1);
+    }
+
+    > img {
+        image-rendering: pixelated;
+        margin-left: 50%;
+        transform: translateX(-50%);
     }
 }
 
 .media {
     margin: .5em 0em .5em 0em;
     color: $font-color-media;
-    background-color: $bg-color-media;
+    background-color: $bg-color-dark;
     text-align: center;
     line-height: 0em;
     padding: 0em;
@@ -192,7 +249,7 @@ p {
     margin: .5em 0em .5em 0em;
     padding: 1em 0em 1em 0em;
     color: $font-color-media;
-    background-color: $bg-color-media;
+    background-color: $bg-color-dark;
     text-align: center;
     line-height: 1em;
 }
@@ -212,35 +269,8 @@ p {
     width: 100.2%;
     height: 0;
     padding: 0em 0em 56.25% 0em;
-}
-
-.button-group a {
-    padding: .4em;
-    margin: .5em;
-    background-color: $font-color-link;
-    color: $font-color-media;
-    font-size: 1.2em;
-    font-weight: bold;
-    //border-radius: .3em;
-    text-decoration: none;
-
-    &:visited {
-        background-color: darken($font-color-link, 10%);;
-    }
-    &:hover,
-    &:focus {
-        padding: .5em;
-        margin: .4em;
-        text-decoration: underline;
-        background-color: $font-color-strong;
-    }
-}
-
-.button-group {
-    margin: .5em 0em .5em 0em;
-    padding: 1em 0em 1em 0em;
-    text-align: center;
-    line-height: 1em;
+    margin-top: .5em;
+    margin-bottom: .5em;
 }
 
 .embed {
@@ -256,7 +286,7 @@ p {
     font-size: 0.9em;
     text-align: center;
     padding: 0em 4em 1em 4em;
-    color: $bg-color-code;
+    color: $bg-color-dark;
 }
 
 .small {
@@ -266,7 +296,7 @@ p {
 }
 
 blockquote {
-    background-color: $bg-color-media;
+    background-color: $bg-color-dark;
     border-left: .5em solid $font-color-link;
     color: $font-color-media;
     margin: .5em 1em .5em 1em;
@@ -278,37 +308,67 @@ blockquote {
     grid-area: header;
     justify-self: center;
     text-align: center;
+    padding-top: 1em;
     padding-bottom: 1em;
-    font-family: $font-code;
+    margin-right: 1.25em;
+
     line-height: 1.3em;
     z-index: 1;
     direction: rtl;
-    padding-top: 1em;
 
     @media #{$mq-small} {
-        padding-left: 1em;
-        padding-right: .5em;
+        padding: 0em;
         text-align: right;
         justify-self: right;
     }
+}
 
-    @media #{$mq-medium} {
-        padding-right: 1em;
+.header-item-top {
+    padding: 1em 0em 0em 0em;
+}
+
+.header-item {
+    padding: .2em 0em 0em 0em;
+}
+
+.header-button {
+    padding: .3em .1em 0em 0em;
+}
+
+a.nav-dark {
+    color: $bg-color-light;
+    text-decoration: none;
+  
+    &:hover,
+    &:focus {
+        color: $font-color-strong;
+        text-decoration: none;
+        box-shadow: -4px 0px 0px 0px $bg-color-dark,
+                    3px 0px 0px 0px $bg-color-dark;
+        background: $bg-color-dark;
     }
 }
 
-a.header {
+a.nav-light {
     color: $font-color-link;
     text-decoration: none;
   
-    &:visited {
-        color: $font-color-link;
-    }
     &:hover,
     &:focus {
-        text-decoration: underline;
         color: $font-color-strong;
+        text-decoration: none;
+        box-shadow: -4px 0px 0px 0px $bg-color-dark,
+                    3px 0px 0px 0px $bg-color-dark;
+        background: $bg-color-dark;
     }
+}
+
+.bg-dark {
+    background-color: $bg-color-dark;
+}
+
+.bg-light {
+    background-color: $bg-color-light;
 }
 
 #footer {
@@ -316,27 +376,60 @@ a.header {
     align-self: end;
     text-align: center;
     color: $font-color-media;
-    background-color: $bg-color-media;
+    background-color: $bg-color-light;
     font-size: 16px;
-    font-family: $font-text;
+    @extend %text-normal;
 }
 
-.home-title {
+.button {
+    @extend %text-bold;
     font-size: 1.3em;
-    font-weight: bold;
     padding: 0em .2em;
-    font-family: $font-code;
+}
+
+.center {
+    text-align: center;
 }
 
 .home-media {
-    margin: 0em 0em .1em 0em;
     color: $font-color-media;
-    background-color: $bg-color-media;
-    text-align: center;
+    background-color: $bg-color-dark;
+    text-align: left;
     line-height: 0em;
-    padding: 0em;
+    margin-top: .5em;
     overflow: hidden;
-    max-height: 180px;
+
+    position: relative;
+
+    image-rendering: pixelated;
+    background-size: cover;
+    background: no-repeat center;
+
+    height: 120px;
+
+    @media #{$mq-small} {
+        height: 200px;
+    }
+
+    @media #{$mq-large} {
+        height: 260px;
+    }
+
+    &:hover,
+    &:focus {
+        //filter: brightness(150%);
+        background-color: $bg-color-light; // Tint color
+        background-blend-mode: hard-light;
+    }
+}
+
+.home-media h2 {
+    padding: 2px 32px 2px 32px;
+    border: solid 2px $bg-color-light;
+}
+
+.home-media:hover h2 {
+    border: solid 2px $font-color-strong;
 }
 
 .half > .home-media {
@@ -344,14 +437,25 @@ a.header {
 }
 
 .home-media img {
-    min-width: 100%;
-    image-rendering: pixelated;
+    position: absolute;
+    background-size: cover;
+}
+
+.home-title {
+    padding: 0em;
+    position: absolute;
+    top: 1em;
+    left: 1.5em;
+    background-color: $bg-color-dark;
 }
 
 .home-caption {
-    font-style: italic;
-    padding: 0em 1em .2em 1em;
-    color: $bg-color-code;
+    padding: 1em;
+    position: absolute;
+    bottom: 1em;
+    right: 1.5em;
+    color: $font-color;
+    background-color: $bg-color-light;
 }
 
 .bgchanger {
@@ -364,14 +468,23 @@ a.header {
     outline-width: 3px;
     width: 2em;
     height: 2em;
+    cursor: pointer;
 }
 
 #bgdark {
     background-color: $bg-color-dark;
+    &:hover,
+    &:focus {
+        outline-color: $font-color-strong;
+    }
 }
 
 #bglight {
-    background-color: $bg-color;
+    background-color: $bg-color-light;
+    &:hover,
+    &:focus {
+        outline-color: $font-color-strong;
+    }
 }
 
 /* PrismJS 1.15.0
@@ -424,7 +537,7 @@ https://prismjs.com/download.html#themes=prism-okaidia&languages=css+clike+javas
  
  :not(pre) > code,
  pre {
-     background: $bg-color-code;
+     background: $bg-color-dark;
  }
  
  /* Inline code */
@@ -582,5 +695,5 @@ pre::-webkit-scrollbar, ::-webkit-scrollbar-track {
 
 pre::-webkit-scrollbar-thumb {
     border-radius: 6px;
-    background-color: $bg-color;
+    background-color: $bg-color-light;
 }
