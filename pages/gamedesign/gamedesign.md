@@ -1,5 +1,7 @@
 # Game design notes
 
+*updated fall '19* {.small}
+
 A few collected thoughts on game mechanics and game design issues.
 
 ### Save Scumming
@@ -34,6 +36,6 @@ bad:
 - forcing extremely tedious trials, for the sake of more gameplay hours?
 - obviously, real money costs (unless game is free)
 
-![Dropship](/pages/dropship/dropship.png) {.media}
-[Play on itch.io](https://benhhopkins.itch.io/dropship) {.button-group}
-Here’s the [source](https://github.com/benhhopkins/LD41).
+# MM Pathfinding
+
+Mystic Melee is a physics-platformer.

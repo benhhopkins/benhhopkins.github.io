@@ -190,7 +190,7 @@ strong {
 
 h1, h2, h3, h4, h5, h6 {
     @extend %text-bold;
-    padding: 1em 1.5em .1em 1.5em;
+    padding: 1em 24px .1em 24px;
     margin: 0em;
     line-height: 1.3em;
 }
@@ -200,7 +200,7 @@ hr {
     color: adjust-color($bg-color-dark, $alpha: -.5);
 }
 
-p {
+p, ul {
     margin: 0;
     padding: 0.5em 3em 0.5em 3em;
 

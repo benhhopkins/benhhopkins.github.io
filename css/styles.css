@@ -20,14 +20,14 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
-  grid-template-areas: "header" "main" "footer"; }
+  grid-template-areas: "header" "main" "footer"; }
   @media (min-width: 40em) {
     body {
       font-size: 1.1em;
       line-height: 1.65;
       grid-template-columns: 1fr;
       grid-template-rows: 1fr auto;
-      grid-template-areas: "header main right" "header footer right"; } }
+      grid-template-areas: "header main right" "header footer right"; } }
   @media (min-width: 60em) {
     body {
       font-size: 1.155em;
@@ -108,7 +108,7 @@ strong {
   font-weight: bold; }
 
 h1, h2, h3, h4, h5, h6 {
-  padding: 1em 1.5em .1em 1.5em;
+  padding: 1em 24px .1em 24px;
   margin: 0em;
   line-height: 1.3em; }
 
@@ -116,14 +116,14 @@ hr {
   margin: 0em 1.5em 0em 1.5em;
   color: rgba(34, 29, 51, 0.5); }
 
-p {
+p, ul {
   margin: 0;
   padding: 0.5em 3em 0.5em 3em; }
   @media (min-width: 60em) {
-    p {
+    p, ul {
       padding: 0.5em 4em 0.5em 4em; } }
   @media (min-width: 100em) {
-    p {
+    p, ul {
       padding: 0.5em 5em 0.5em 5em; } }
 
 .hero-image {
