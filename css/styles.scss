@@ -17,7 +17,7 @@ $bg-color-light: #b5bccc;
 $font-color: #1d1d1d;
 $font-color-link: #0044d6c9;
 $font-color-visited: #1942c9;
-$font-color-strong: #e42756;
+$font-color-strong: #c41c46;
 $font-color-media: #f8f8f2;
 
 // scaling, method credit https://css-tricks.com/optimizing-large-scale-displays/
@@ -225,8 +225,8 @@ p, ul {
 
     > img {
         image-rendering: pixelated;
-        margin-left: 50%;
         transform: translateX(-50%);
+        margin-left: 50%;
     }
 }
 
@@ -244,6 +244,33 @@ p, ul {
     height: auto;
     image-rendering: pixelated;
 }
+
+.media-fixed-scale {
+    background-color: $bg-color-dark;
+    line-height: 0em;
+    padding: 0em;
+    width: auto;
+    transform: scale(.5);
+    @media #{$mq-medium} {
+        transform: scale(1);
+    }
+
+    > img {
+        image-rendering: pixelated;
+        transform: translateX(-50%);
+        margin-left: 50%;
+        margin-top: -10%;
+        margin-bottom: -10%;
+        @media #{$mq-medium} {
+            margin-top: 0%;
+            margin-bottom: 0%;
+        }
+    }
+}
+
+// video {
+    
+// }
 
 .media-group {
     margin: .5em 0em .5em 0em;
