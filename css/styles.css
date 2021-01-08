@@ -70,7 +70,7 @@ article {
   border-width: 0px;
   border-right: 0px;
   border-left: 0px;
-  border-color: #0044d6c9;
+  border-color: #0044d6;
   border-style: solid; }
 
 .inner-grid {
@@ -93,7 +93,7 @@ article {
       padding: 0em .25em 0em .5em; }
 
 a {
-  color: #0044d6c9;
+  color: #0044d6;
   text-decoration: underline; }
   a:visited {
     color: #1942c9; }
@@ -104,7 +104,7 @@ a {
     background: #221d33; }
 
 strong {
-  color: #c41c46;
+  color: #221d33;
   font-weight: bold; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -134,7 +134,7 @@ p, ul {
   transform: scale(0.5); }
   @media (min-width: 60em) {
     .hero-image {
-      transform: scale(1); } }
+      transform: none; } }
   .hero-image > img {
     image-rendering: pixelated;
     transform: translateX(-50%);
@@ -161,7 +161,7 @@ p, ul {
   transform: scale(0.5); }
   @media (min-width: 60em) {
     .media-fixed-scale {
-      transform: scale(1); } }
+      transform: none; } }
   .media-fixed-scale > img {
     image-rendering: pixelated;
     transform: translateX(-50%);
@@ -218,7 +218,7 @@ p, ul {
 
 blockquote {
   background-color: #221d33;
-  border-left: 0.5em solid #0044d6c9;
+  border-left: 0.5em solid #0044d6;
   color: #f8f8f2;
   margin: .5em 1em .5em 1em; }
 
@@ -257,7 +257,7 @@ a.nav-dark {
     background: #221d33; }
 
 a.nav-light {
-  color: #0044d6c9;
+  color: #0044d6;
   text-decoration: none; }
   a.nav-light:hover, a.nav-light:focus {
     color: #c41c46;
@@ -343,7 +343,7 @@ a.nav-light {
   margin-left: .5em;
   margin-bottom: .5em;
   outline-style: solid;
-  outline-color: #0044d6c9;
+  outline-color: #0044d6;
   outline-width: 3px;
   width: 2em;
   height: 2em;

@@ -1,6 +1,17 @@
-# Momentum Platforming / Box2D in platformers
+# Platformer AI
 
-*Rigidbody physics + platforming in Mystic Melee.*
+*Navigating towards goals and using skills effectively in a 2D platformer.*
+
+
+
+
+
+
+
+
+
+
+
 
 <video autoplay loop muted playsinline src="physicsplatforms.webm"></video> {.media}
 

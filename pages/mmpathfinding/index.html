@@ -25,8 +25,8 @@
 </div>
     <main class="lang-clike">
         <article>
-<h1>Momentum Platforming / Box2D in platformers</h1>
-<p><em>Rigidbody physics + platforming in Mystic Melee.</em></p>
+<h1>Platformer AI</h1>
+<p><em>Navigating towards goals and using skills effectively in a 2D platformer.</em></p>
 <p class="media"><video autoplay loop muted playsinline src="physicsplatforms.webm"></video></p>
 <p>Mystic Melee uses the <a href="https://box2d.org/">Box2D</a> physics engine. It's a popular solution for a rigidbody 2D physics simulation, including integrations with many game engines. However, using Box2D or any realistic physics engine is often not recommended for platformer games. <em>Tight</em> controls are imperative for platformers, which means the characters feel rapidly responsive to input. Usually this means breaking the laws of physics. For example, near-infinite acceleration when moving and non-parabolic jumping mechanics are common in platformer games.</p>
 <p>On the other hand, realistic physics simulations lead to fun, emergent interactions. Entire games are built around playing with rigidbody physics. We get to use our intuition of how real-world objects interact in the context of the game. So, for Mystic Melee, I wanted to try building a system where both the platformer controls felt tight and responsive <em>and</em> you could interact with a more realistic physics world. Here, I'll explain how I used Box2D for this purpose, with lessons for adapting any rigidbody physics engine to a platformer.</p>

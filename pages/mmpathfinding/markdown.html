@@ -1,32 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Games by Ben Hopkins">
-    <meta name="author" content="Ben Hopkins">
-    <link rel="icon" href="/favicon.png">
-
-    <title>Box2D for platformer physics</title>
-
-    <link href="/css/styles.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&family=Merriweather:wght@400&display=swap" rel="stylesheet">
-</head>
-
-<body>
-    <div id="header">
-    <h2 class="header-item-top"><a href="/index.html" class="nav">Ben Hopkins</a></h2>
-    <h4 class="header-item"><a href="/index.html#projects" class="nav">Projects</a></h4>
-    <h4 class="header-item"><a href="/index.html#dev" class="nav">Dev</a></h4>
-    <h4 class="header-item"><a href="/index.html#art" class="nav">Art</a></h4>
-    <h4 class="header-item"><a href="/index.html#jams" class="nav">Jams</a></h4>
-    <div class="header-button"><a href="http://twitter.com/benhhopkins"><img src="/images/twitter.png"></a></div>
-</div>
-    <main class="lang-clike">
-        <article>
-<h1>Momentum Platforming / Box2D in platformers</h1>
-<p><em>Rigidbody physics + platforming in Mystic Melee.</em></p>
+<h1>Platformer AI</h1>
+<p><em>Navigating towards goals and using skills effectively in a 2D platformer.</em></p>
 <p class="media"><video autoplay loop muted playsinline src="physicsplatforms.webm"></video></p>
 <p>Mystic Melee uses the <a href="https://box2d.org/">Box2D</a> physics engine. It's a popular solution for a rigidbody 2D physics simulation, including integrations with many game engines. However, using Box2D or any realistic physics engine is often not recommended for platformer games. <em>Tight</em> controls are imperative for platformers, which means the characters feel rapidly responsive to input. Usually this means breaking the laws of physics. For example, near-infinite acceleration when moving and non-parabolic jumping mechanics are common in platformer games.</p>
 <p>On the other hand, realistic physics simulations lead to fun, emergent interactions. Entire games are built around playing with rigidbody physics. We get to use our intuition of how real-world objects interact in the context of the game. So, for Mystic Melee, I wanted to try building a system where both the platformer controls felt tight and responsive <em>and</em> you could interact with a more realistic physics world. Here, I'll explain how I used Box2D for this purpose, with lessons for adapting any rigidbody physics engine to a platformer.</p>
@@ -111,20 +84,3 @@ if (m_movingPlatform) // a *b2Body we are standing on
 <p>For Mystic Melee, this combination is what makes the game unique. Responsive movement that also rewards momentum-building can be hard to achieve. It's fun to fight in the interactive environment, and many spells and puzzles are built around this physical system.</p>
 <p class="media"><video autoplay loop muted playsinline src="ballgame.webm"></video></p>
 <p>Some of these techniques will have to be used anytime you want to leverage an engine's collision detection in your platformer. However, for a more classic feel, you may be better off trying to ignore the features of your physics engine as much as possible. It's simpler to make a character move like Megaman than like Sonic. But it's rewarding to learn the ins and outs of a physics engine and achieve responsive movement in a dynamic world.</p>
-
-        </article>
-    </main>
-    <div class="right">
-        <div class="bgchanger" id="bgdark"></div>
-        <div class="bgchanger" id="bglight"></div>
-    </div>
-    <footer id="footer"><h2><a href="/">Home</a></h2></footer>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <script src="/js/prism.js"></script>
-    <script src="/js/bgcolor.js" type="module"></script>
-
-</body>
-
-</html>

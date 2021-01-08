@@ -15,9 +15,9 @@ $font-code: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 $bg-color-dark: #221d33;
 $bg-color-light: #b5bccc;
 $font-color: #1d1d1d;
-$font-color-link: #0044d6c9;
+$font-color-link: #0044d6;
 $font-color-visited: #1942c9;
-$font-color-strong: #c41c46;
+$font-color-button: #c41c46;
 $font-color-media: #f8f8f2;
 
 // scaling, method credit https://css-tricks.com/optimizing-large-scale-displays/
@@ -175,7 +175,7 @@ a {
     }
     &:hover,
     &:focus {
-      color: $font-color-strong;
+      color: $font-color-button;
       text-decoration: none;
       box-shadow: -4px 0px 0px 0px $bg-color-dark,
                   4px 0px 0px 0px $bg-color-dark;
@@ -184,7 +184,7 @@ a {
 }
 
 strong {
-    color: $font-color-strong;
+    color: $bg-color-dark;
     font-weight: bold;
 }
 
@@ -220,7 +220,7 @@ p, ul {
     width: auto;
     transform: scale(.5);
     @media #{$mq-medium} {
-        transform: scale(1);
+        transform: none;
     }
 
     > img {
@@ -252,7 +252,7 @@ p, ul {
     width: auto;
     transform: scale(.5);
     @media #{$mq-medium} {
-        transform: scale(1);
+        transform: none;
     }
 
     > img {
@@ -368,7 +368,7 @@ a.nav-dark {
   
     &:hover,
     &:focus {
-        color: $font-color-strong;
+        color: $font-color-button;
         text-decoration: none;
         box-shadow: -4px 0px 0px 0px $bg-color-dark,
                     3px 0px 0px 0px $bg-color-dark;
@@ -382,7 +382,7 @@ a.nav-light {
   
     &:hover,
     &:focus {
-        color: $font-color-strong;
+        color: $font-color-button;
         text-decoration: none;
         box-shadow: -4px 0px 0px 0px $bg-color-dark,
                     3px 0px 0px 0px $bg-color-dark;
@@ -456,7 +456,7 @@ a.nav-light {
 }
 
 .home-media:hover h2 {
-    border: solid 2px $font-color-strong;
+    border: solid 2px $font-color-button;
 }
 
 .half > .home-media {
@@ -502,7 +502,7 @@ a.nav-light {
     background-color: $bg-color-dark;
     &:hover,
     &:focus {
-        outline-color: $font-color-strong;
+        outline-color: $font-color-button;
     }
 }
 
@@ -510,7 +510,7 @@ a.nav-light {
     background-color: $bg-color-light;
     &:hover,
     &:focus {
-        outline-color: $font-color-strong;
+        outline-color: $font-color-button;
     }
 }
 
