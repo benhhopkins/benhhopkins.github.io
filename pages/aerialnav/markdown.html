@@ -1,0 +1,20 @@
+<h1>Aerial Navigation in Procedural Worlds (3D)</h1>
+<p class="media"><img src="/pages/dropship/dropship.png" alt="Dropship"></p>
+<p>how i'm implementing aerial + ground pathfinding in skyjunk</p>
+<p>why the game needs a combination of aerial and ground pathing</p>
+<p>aerial pathfinding already a tricky challenge, generating graphs from procedural levels is even harder</p>
+<p>for actual pathfinding algorithms, using A* Pathfinding Project
+https://arongranberg.com/astar/</p>
+<h2>Open Spaces to efficient graphs</h2>
+<p>similar techniques used in Warframe, as told by Dan Brewer in excellent GDC talk
+https://www.gdcvault.com/play/1022016/Getting-off-the-NavMesh-Navigating</p>
+<p>the naive approach would be to create a 3d graph of pathing nodes, but this would make the search space extremely large for many paths, preventing us from pathfinding in real time.</p>
+<p>our goal is to have a higher density of points in the graph around level geometry, and low density of points in large open spaces.</p>
+<h3>Rasterization</h3>
+<p>level generation uses octree to create terrain and platforms
+same octree is used to rasterize the empty spaces, recursively creating nodes until a minimum size is reached</p>
+<h3>Weights</h3>
+<p>our graph isn't more efficient than a simple grid when we're trying to path around an obstacle, since we'll be hitting the densest areas of nodes. need to reduce the weight of larger spaces when pathing to encourage using them. this has the effect of causing your agents to &quot;steer clear&quot; of geometry, which is actually a somewhat natural behavior to see from flying objects.</p>
+<h2>Connecting to the ground</h2>
+<h2>Agent restrictions</h2>
+<h2>Bringing agents to life</h2>
