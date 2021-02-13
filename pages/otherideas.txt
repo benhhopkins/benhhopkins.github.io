@@ -1,0 +1,3 @@
+my preferred unity animation method? (layered animation states bypassing mechanim)
+
+skyjunk character controller

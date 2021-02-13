@@ -14,6 +14,11 @@ $font-code: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 
 $bg-color-dark: #221d33;
 $bg-color-light: #b5bccc;
+$bg-color-default: #{$bg-color-light};
+@media (prefers-color-scheme: dark) {
+    $bg-color-default: #{$bg-color-dark};
+}
+
 $font-color: #1d1d1d;
 $font-color-link: #0044d6;
 $font-color-visited: #1942c9;

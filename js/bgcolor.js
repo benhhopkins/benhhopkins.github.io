@@ -26,7 +26,7 @@ function setLight() {
 var bgcolorstart = localStorage.getItem('bgcolor');
 if (bgcolorstart == 'light') {
     setLight();
-} else {
+} else if(bgcolorstart == 'dark') {
     setDark();
 }
 
