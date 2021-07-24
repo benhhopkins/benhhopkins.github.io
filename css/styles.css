@@ -20,14 +20,14 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
-  grid-template-areas: "header" "main" "footer"; }
+  grid-template-areas: "header" "main" "footer"; }
   @media (min-width: 40em) {
     body {
       font-size: 1.1em;
       line-height: 1.65;
       grid-template-columns: 1fr;
       grid-template-rows: 1fr auto;
-      grid-template-areas: "header main right" "header footer right"; } }
+      grid-template-areas: "header main right" "header footer right"; } }
   @media (min-width: 60em) {
     body {
       font-size: 1.155em;

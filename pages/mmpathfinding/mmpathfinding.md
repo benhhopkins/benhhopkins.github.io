@@ -2,8 +2,26 @@
 
 *Navigating towards goals and using skills effectively in a 2D platformer.*
 
+Platformer games have often been designed in ways that limit the need for intelligent agents. When a game's challenge rises from contending with physics while traversing a level from left to right, a Goomba moving predictably across a platform serves well as a dynamic obstacle. Less perfectly predictable enemies (like a Hammer Bro) would often be sprinkled lightly across traditional platformers or reserved for boss battles.
+
+In Mystic Melee, simple agents are used in many levels where precise platforming is the focus. But the game also has multiplayer platform-fighter battles, so I created AI agents that use the same characters and abilities as the player. I've always found "bots" to be a fun addition to modes originally intended to be multiplayer, either for a co-op experience with friends (comp stomp!), to fill out player counts for playing on big maps, or just to play around with all the game's features by yourself. I remember enjoying Jedi Outcast's arena modes even though I unfortunately owned the game on Xbox, where for some reason they didn't implement online play. The bots were just barely good enough to make it fun.
+
+Here are some challenges I found when coding MM's agents, many of which are common problems for platformer AIs:
+
+- Traversal isn't simple in a platformer. Most games with physical agents can stay on a navmesh that covers the ground 
+- Look-ahead is generally a problem. A reliable way to make a smart AI is to have it evaluate discrete game states branching forward from possible actions the player and AI might take. This is sometimes possible in turn based games. Even if the game has too many possible states to fully solve, like Chess, just looking ahead a few turns can make the AI feel very smart for the player. In platformers, units and objects move continously in response to input every frame, so it's not possible to use this method in a straightforward way.
+- The physics engine limits basic prediction. Mystic Melee uses Box2D, which can't simulate and roll-back state on select objects. If it could, the AI could probe the correct timing for jumps and movement abilities easily.
+- Spells in the game are best used in specific ways. This wouldn't be a problem if they weren't also tied to the physics engine, which means the AI can't simulate the outcome of making that "move".
+- Levels can be difficult to traverse and there are too many to hand-craft pathing for the AI. Buzzsaws, bottomless pits, and moving platforms make it difficult to create a pathfinding graph and routines to navigate agents.
+- Different game modes require
 
 
+ In some cases, like when the game state can captured in a manageable set of future moves, it's straightforward and practically mathematical.
+
+
+If you've ever tried to design an AI agent that maneuvers in a 2D platforming environment, you've probably encountered some unique challenges. Grid-based and turn based games can be broken down into , basic movement around the stage can be difficult. Look-ahead evaluation might be impossible, either because of the physics engine or a game state that can't be easily encapsulated. The stages can be difficult to break down into components that an AI can navigate with straightforward pathfinding.
+
+In Mystic Melee I wrote an 
 
 
 
