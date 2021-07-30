@@ -8,7 +8,7 @@
     <meta name="author" content="Ben Hopkins">
     <link rel="icon" href="/favicon.png">
 
-    <title>Ultra Skysiege</title>
+    <title>3d art</title>
 
     <link href="/css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Merriweather&display=swap" rel="stylesheet">
@@ -27,13 +27,22 @@
 </nav>
     <main >
         <article>
-<h1>Ultra Skysiege: Pokket</h1>
-<p class="hero-image"><img src="/pages/skysiege/skysiege.png" alt="Skysiege"></p>
-<p class="button center"><a href="https://benhhopkins.itch.io/ultra-skysiege-pokket">Play on itch.io</a></p>
-<p>A game for GBJAM5.</p>
-<p>Thanks to <a href="https://twitter.com/chasebethea">Chase Bethea</a> for the music and sfx!</p>
-<p>Here’s the <a href="https://github.com/benhhopkins/skysiege">source</a>. It was my first time using <a href="https://Phaser.io">Phaser</a>.</p>
-
+<h1>Other 3d stuff</h1>
+<p class="media-fixed-scale"><img src="./media/house.png" alt="House"></p>
+<p>Playing around with isometric perspective. Camera is angled at (60, 0, 45), and the film pixel filter width is 0.01px to get those sharp pixel edges.<br>
+<a href="./media/house_tri.png">Same house from a &quot;trimetric&quot; perspective.</a><br>
+Generating looks similar to pixel art from 3D is appealing to me. I'd like to make a game in a similar style someday.</p>
+<hr>
+<div class="sidebar-container">
+<p class="sidebar-media"><video autoplay loop muted playsinline src="media/tv.webm"></video></p>
+<p class="sidebar-text">Tube TV enemy for a gamejam.<br>
+Some other enemies, rigged and animated:<br>
+<a href="./media/cat.webm">cat slime</a>
+<a href="./media/floater.webm">floater</a>
+<a href="./media/eye.webm">rolling eye</a><br>
+(these 3 designed by Sammy Mahmoudi, and modelled by Richard Klassen)<br>
+We were going for a bit of a claymation style. These are captured from Unity, where I made a simple shader that uses 3d noise to adjust color and vertex displacement every few frames. I used constant interpolation in the animations and limited keyframes to every 3-6 frames, though I think next time I would exaggerate the stop-motion look with even fewer keyframes.</p>
+</div>
         </article>
     </main>
     <div class="right">

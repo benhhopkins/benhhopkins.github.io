@@ -11,18 +11,20 @@
     <title>Box2D for platformer physics</title>
 
     <link href="/css/styles.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&family=Merriweather:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Merriweather&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div id="header">
+    <nav>
     <h2 class="header-item-top"><a href="/index.html" class="nav">Ben Hopkins</a></h2>
-    <h4 class="header-item"><a href="/index.html#projects" class="nav">Projects</a></h4>
-    <h4 class="header-item"><a href="/index.html#dev" class="nav">Dev</a></h4>
-    <h4 class="header-item"><a href="/index.html#art" class="nav">Art</a></h4>
-    <h4 class="header-item"><a href="/index.html#jams" class="nav">Jams</a></h4>
-    <div class="header-button"><a href="http://twitter.com/benhhopkins"><img src="/images/twitter.png"></a></div>
-</div>
+    <ul>
+        <li><h4 class="header-item"><a href="/index.html#projects" class="nav">Projects</a></h4></li>
+        <li><h4 class="header-item"><a href="/index.html#dev" class="nav">Dev</a></h4></li>
+        <li><h4 class="header-item"><a href="/index.html#art" class="nav">Art</a></h4></li>
+        <li><h4 class="header-item"><a href="/index.html#jams" class="nav">Jams</a></h4></li>
+        <li><div class="header-button"><a href="http://twitter.com/benhhopkins"><img src="/images/twitter.png"></a></div></li>
+    </ul>
+</nav>
     <main class="lang-clike">
         <article>
 <h1>Platformer AI</h1>
@@ -132,7 +134,11 @@ if (m_movingPlatform) // a *b2Body we are standing on
         <div class="bgchanger" id="bgdark"></div>
         <div class="bgchanger" id="bglight"></div>
     </div>
-    <footer id="footer"><h2><a href="/">Home</a></h2></footer>
+    <footer id="footer">
+    <hr/>
+    <h4><a href="/">Home</a></h4>
+    <br/>
+</footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>

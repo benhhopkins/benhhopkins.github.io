@@ -15,14 +15,16 @@
 </head>
 
 <body>
-    <div id="header">
+    <nav>
         <h2 class="header-item-top"><a href="/index.html" class="nav">Ben Hopkins</a></h2>
-        <h4 class="header-item"><a href="/index.html#projects" class="nav">Projects</a></h4>
-        <h5 class="header-item"><a href="/index.html#dev" class="nav">Dev</a></h5>
-        <h5 class="header-item"><a href="/index.html#art" class="nav">Art</a></h5>
-        <h5 class="header-item"><a href="/index.html#jams" class="nav">Jams</a></h5>
-        <div class="header-button"><a href="http://twitter.com/benhhopkins"><img src="/images/twitter.png"></a></div>
-    </div>
+        <ul>
+            <li><h4 class="header-item"><a href="/index.html#projects" class="nav">Projects</a></h4></li>
+            <li><h4 class="header-item"><a href="/index.html#dev" class="nav">Dev</a></h4></li>
+            <li><h4 class="header-item"><a href="/index.html#art" class="nav">Art</a></h4></li>
+            <li><h4 class="header-item"><a href="/index.html#jams" class="nav">Jams</a></h4></li>
+            <li><div class="header-button"><a href="http://twitter.com/benhhopkins"><img src="/images/twitter.png"></a></div></li>
+        </ul>
+    </nav>
     <main>
         <article>
             <section>
@@ -37,55 +39,45 @@
                     <div class="home-caption">Platformer and fighting game.</div>
                 </div>
             </section>
-            <section class="inner-grid">
-                <div>
-                    <h4 id="dev">Development and Design</h4><hr/>
+            <section style="display:flex; flex-flow: wrap; align-content: stretch;">
+                <div style="flex: 0 1 100%;">
+                    <h3 id="dev">Development and Design</h3><hr/>
                     <div class="snippet">
-                        <div><h4><a class="button-small" href="/pages/mmpathfinding">Platformer AI</a></h4><p>Navigating towards goals and using skills effectively in a 2D platformer.</p></div>
+                        <div><h3><a class="button-small" href="/pages/mmpathfinding">Platformer AI</a></h3><p>Navigating towards goals and using skills effectively in a 2D platformer.</p></div>
                     </div>
                     <div class="snippet">
-                        <div><h4><a class="button-small" href="/pages/mmphysics">Momentum Platforming / Box2D in platformers</a></h4><p>Rigidbody physics + platforming in Mystic Melee.</p></div>
-                        <img src="/pages/mmphysics/preview.png" />
+                        <a class="preview-image" href="/pages/mmphysics"><img src="/pages/mmphysics/preview.png" /></a>
+                        <div><h3><a class="button-small" href="/pages/mmphysics">Momentum Platforming / Box2D in platformers</a></h3><p>Rigidbody physics + platforming in Mystic Melee.</p></div>
                     </div>
                     <div class="snippet">
-                        <div><h4><a class="button-small" href="/pages/pixitilemap">Pixi.js Tilemap</a></h4><p>Draggable, selectable tilemap in pixi.js</p></div>
-                    </div>
-                </div>
-                <div>
-                    <h4 id="art">Art</h4><hr/>
-                    <div class="snippet">
-                        <div><h4><a class="button-small" href="/pages/skysiege">Platformer AI</a></h4><p>Navigate towards goals and use skills effectively in a 2D platformer.</p></div>
-                        <img src="/pages/skysiege/preview.png" />
-                    </div>
-                    <div class="snippet">
-                        <div><h4><a class="button-small" href="/pages/skysiege">Platformer AI</a></h4><p>Navigate towards goals and use skills effectively in a 2D platformer.</p></div>
-                        <img src="/pages/skysiege/preview.png" />
+                        <div><h3><a class="button-small" href="/pages/pixitilemap">Pixi.js Tilemap</a></h3><p>Draggable, selectable tilemap in pixi.js</p></div>
                     </div>
                 </div>
-                <div>
-                    <h4 id="gamejams">Game Jams</h4><hr/>
+                <div style="flex: 1 2 380px;">
+                    <h3 id="art">Art</h3><hr/>
                     <div class="snippet">
-                        <div><h4><a class="button-small" href="/pages/feralhogs">Feral Hog Simulator</a></h4><p>Ludum Dare 46</p></div>
-                        <img src="/pages/feralhogs/preview.png" />
+                        <a class="preview-image" href="/pages/3d"><img src="/pages/3d/preview.png" /></a>
+                        <div><h3><a class="button-small" href="/pages/3d">3D art</a></h3><p>misc. 3d stuff.</p></div>
                     </div>
                     <div class="snippet">
-                        <div><h4><a class="button-small" href="/pages/skysiege">Ultra Skysiege</a></h4><p>Gameboy Jam 5</p></div>
-                        <img src="/pages/skysiege/preview.png" />
+                        <a class="preview-image" href="/pages/pixelart"><img src="/pages/pixelart/preview.png" /></a>
+                        <div><h3><a class="button-small" href="/pages/pixelart">pixel art</a></h3><p>Mostly old pixel dailies and such.</p></div>
+                    </div>
+                </div>
+                <div style="flex: 1 2 380px;">
+                    <h3 id="gamejams">Game Jams</h3><hr/>
+                    <div class="snippet">
+                        <a class="preview-image" href="/pages/feralhogs"><img src="/pages/feralhogs/preview.png" /></a>
+                        <div><h3><a class="button-small" href="/pages/feralhogs">Feral Hog Simulator</a></h3><p>Ludum Dare 46</p></div>
                     </div>
                     <div class="snippet">
-                        <div><h4><a class="button-small" href="/pages/dropship">Dropship: Orcs in Space</a></h4><p>Ludum Dare 41</p></div>
+                        <a class="preview-image" href="/pages/skysiege"><img src="/pages/skysiege/preview.png" /></a>
+                        <div><h3><a class="button-small" href="/pages/skysiege">Ultra Skysiege</a></h3><p>Gameboy Jam 5</p></div>
+                    </div>
+                    <!-- <div class="snippet">
+                        <div><h3><a class="button-small" href="/pages/dropship">Dropship: Orcs in Space</a></h3><p>Ludum Dare 41</p></div>
                         <img src="/pages/dropship/preview.png" />
-                    </div>
-                </div>
-                <div>
-                    <h4 id="design">Misc.</h4><hr/>
-                    <div class="snippet">
-                        <div><h4><a class="button-small" href="/pages/skysiege">Platformer AI</a></h4><p>Navigate towards goals and use skills effectively in a 2D platformer.</p></div>
-                    </div>
-                    <div class="snippet">
-                        <div><h4><a class="button-small" href="/pages/skysiege">Platformer AI</a></h4><p>Navigate towards goals and use skills effectively in a 2D platformer.</p></div>
-                        <img src="/pages/skysiege/preview.png" />
-                    </div>
+                    </div> -->
                 </div>
             </section>            
         </article>
@@ -94,7 +86,6 @@
         <div class="bgchanger" id="bgdark"></div>
         <div class="bgchanger" id="bglight"></div>
     </div>
-    <footer id="footer"><a href="/">Home</a></footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
