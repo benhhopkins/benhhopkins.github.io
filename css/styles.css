@@ -96,6 +96,10 @@ article {
   border-style: solid;
 }
 
+.intro {
+  padding: 1em 1.5em 0.1em 1.5em;
+}
+
 .snippet {
   padding: 1em 1.5em 0.1em 1.5em;
   display: grid;
@@ -420,7 +424,6 @@ a.nav-light:hover, a.nav-light:focus {
 
 .button {
   font-size: 1.3em;
-  padding: 0em 0.2em;
 }
 
 .center {
@@ -456,12 +459,14 @@ a.nav-light:hover, a.nav-light:focus {
 }
 
 .home-media h2 {
-  padding: 2px 32px 2px 32px;
+  padding: 0.25em 1em 0.25em 1em;
   border: solid 2px #b5bccc;
+  border-radius: 0.2em;
 }
 
 .home-media:hover h2 {
   border: solid 2px #c41c46;
+  border-radius: 0.2em;
 }
 
 .half > .home-media {
@@ -488,6 +493,8 @@ a.nav-light:hover, a.nav-light:focus {
   right: 1.5em;
   color: #1d1d1d;
   background-color: #b5bccc;
+  border: solid 1px #221d33;
+  border-radius: 0.2em;
 }
 
 .bgchanger {

@@ -144,6 +144,10 @@ article {
     border-style: solid;
 }
 
+.intro {
+    padding: 1em 1.5em .1em 1.5em;
+}
+
 .snippet {
     padding: 1em 1.5em .1em 1.5em;
 
@@ -503,7 +507,6 @@ a.nav-light {
 .button {
     @extend %text-bold;
     font-size: 1.3em;
-    padding: 0em .2em;
 }
 
 .center {
@@ -543,12 +546,14 @@ a.nav-light {
 }
 
 .home-media h2 {
-    padding: 2px 32px 2px 32px;
+    padding: .25em 1em .25em 1em;
     border: solid 2px $bg-color-light;
+    border-radius: .2em;
 }
 
 .home-media:hover h2 {
     border: solid 2px $font-color-button;
+    border-radius: .2em;
 }
 
 .half > .home-media {
@@ -575,6 +580,8 @@ a.nav-light {
     right: 1.5em;
     color: $font-color;
     background-color: $bg-color-light;
+    border: solid 1px $bg-color-dark;
+    border-radius: .2em;
 }
 
 .bgchanger {

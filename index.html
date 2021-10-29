@@ -18,22 +18,30 @@
     <nav>
         <h2 class="header-item-top"><a href="/index.html" class="nav">Ben Hopkins</a></h2>
         <ul>
-            <li><h4 class="header-item"><a href="/index.html#projects" class="nav">Projects</a></h4></li>
+            <!-- <li><h4 class="header-item"><a href="/index.html#projects" class="nav">Projects</a></h4></li>
             <li><h4 class="header-item"><a href="/index.html#dev" class="nav">Dev</a></h4></li>
             <li><h4 class="header-item"><a href="/index.html#art" class="nav">Art</a></h4></li>
-            <li><h4 class="header-item"><a href="/index.html#jams" class="nav">Jams</a></h4></li>
+            <li><h4 class="header-item"><a href="/index.html#jams" class="nav">Jams</a></h4></li> -->
             <li><div class="header-button"><a href="http://twitter.com/benhhopkins"><img src="/images/twitter.png"></a></div></li>
         </ul>
     </nav>
     <main>
         <article>
-            <section>
-                <h2>Game Dev Page</h2><hr/>
-                <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum.</p>
-                <p><a href="">Link 1</a><a href="">Link 2</a><a href="">Link 3</a></p>
+            <section id="top">
+                <!-- <h2>Game Dev Page</h2><hr/> -->
+                <p class="intro">Hello, my name is Ben Hopkins. I'm into all aspects of game creation: engineering, design, art, music and sounds. This site is a collection of things that I've made, and game-related articles and musings. Thanks for stopping by.</p>
+                <!-- <p><a href="">Link 1</a><a href="">Link 2</a><a href="">Link 3</a></p> -->
             </section>
             <section>
                 <h2 id="projects">Projects</h2><hr/>
+                <div class="home-media" style="cursor:pointer; background-image: url('/pages/malagris/preview.png');" onclick="location.href='/pages/malagris'">
+                    <h2 class="home-title">Malagris</h2>
+                    <div class="home-caption">Atmospheric horror/puzzle, PSX-style.</div>
+                </div>
+                <div class="home-media" style="cursor:pointer; background-image: url('/pages/skyjunk/preview.png');" onclick="location.href='/pages/skyjunk'">
+                    <h2 class="home-title">Skyjunk</h2>
+                    <div class="home-caption">Action roguelite, procedurally generated.</div>
+                </div>
                 <div class="home-media" style="cursor:pointer; background-image: url('/pages/mysticmelee/preview.png');" onclick="location.href='http://mysticmelee.com'">
                     <h2 class="home-title">Mystic Melee</h2>
                     <div class="home-caption">Platformer and fighting game.</div>
@@ -42,9 +50,9 @@
             <section style="display:flex; flex-flow: wrap; align-content: stretch;">
                 <div style="flex: 0 1 100%;">
                     <h3 id="dev">Development and Design</h3><hr/>
-                    <div class="snippet">
+                    <!-- <div class="snippet">
                         <div><h3><a class="button-small" href="/pages/mmpathfinding">Platformer AI</a></h3><p>Navigating towards goals and using skills effectively in a 2D platformer.</p></div>
-                    </div>
+                    </div> -->
                     <div class="snippet">
                         <a class="preview-image" href="/pages/mmphysics"><img src="/pages/mmphysics/preview.png" /></a>
                         <div><h3><a class="button-small" href="/pages/mmphysics">Momentum Platforming / Box2D in platformers</a></h3><p>Rigidbody physics + platforming in Mystic Melee.</p></div>
