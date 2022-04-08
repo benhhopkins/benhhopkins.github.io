@@ -11,12 +11,21 @@ const connect = require('gulp-connect');
 
 markdown.use(markdownattrs);
 
-gulp.task('compile', function () {
-    var currentPath = '';
-    var header = fs.readFileSync("pages/header.html", "utf8");
-    var footer = fs.readFileSync("pages/footer.html", "utf8");
+var paths = {
+    styles: {
+        src: 'css/*.scss',
+        dest: 'css'
+    },
+    pages: {
+        src: './pages/*/*.md',
+        dest: './pages'
+    }
+};
 
-    return gulp.src('pages/*/*.md')
+function compile() {
+    var currentPath = '';
+
+    return gulp.src(paths.pages.src, {since: gulp.lastRun(compile)})
     .pipe(map(function (file, cb) {
         var md = file.contents.toString();
         var html = markdown.render(md);
@@ -38,6 +47,9 @@ gulp.task('compile', function () {
     .pipe(map(function (file, cb) {
         var fileContents = file.contents.toString();
         var template = fs.readFileSync("pages/template.html", "utf8");
+
+        var header = fs.readFileSync("pages/header.html", "utf8");
+        var footer = fs.readFileSync("pages/footer.html", "utf8");
 
         template = template.replace("<%article%>", fileContents);
         template = template.replace("<%header%>", header);
@@ -70,30 +82,35 @@ gulp.task('compile', function () {
         file.contents = Buffer.from(template);
         cb(null, file);
     }))
-    .pipe(gulp.dest('./pages'))
+    .pipe(gulp.dest(paths.pages.dest))
     .pipe(connect.reload());
-});
+}
 
-gulp.task('sass', function () {
-    return gulp.src('css/*.scss')
+function styles() {
+    return gulp.src(paths.styles.src)
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('css'))
+        .pipe(gulp.dest(paths.styles.dest))
         .pipe(connect.reload());
-});
+}
 
-gulp.task('connect', function () {
+function server() {
     connect.server({
         root: './',
         port: 8080,
         livereload: true
     });
-});
+}
 
-gulp.task('watch', function () {
-    gulp.watch('./pages/*/*.md', gulp.series('compile'));
-    gulp.watch('./css/*.scss', gulp.series('sass'));
-  });
+function watch() {
+    gulp.watch(paths.pages.src, gulp.series(compile));
+    gulp.watch(paths.styles.src, gulp.series(styles));
+}
 
-gulp.task('serve', gulp.series(['compile', 'sass', 'connect']));
+var build = gulp.parallel(watch, gulp.series(compile, styles, server));
 
-gulp.task('default', gulp.parallel('serve', 'watch'));
+exports.styles = styles;
+exports.compile = compile;
+exports.server = server;
+exports.watch = watch;
+exports.build = build;
+exports.default = build;

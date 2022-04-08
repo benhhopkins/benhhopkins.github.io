@@ -1,0 +1,209 @@
+<h1>Dropchute</h1>
+<p><em>An exploration of how Downwell might play in 3d.</em></p>
+<p class="media-fixed-scale"><img src="dropchute1.gif" alt="gif1"></p>
+<p class="button center"><a href="https://benhhopkins.itch.io/dropchute">Play on itch.io</a></p>
+<p>For <a href="https://itch.io/jam/inspirejam">Inspire Jam</a>, I reinterpreted the game <a href="https://www.downwellgame.com/">Downwell</a>, changing it from a 2d pixel art game to a stylized lowpoly 3d game.</p>
+<p class="article-contents"><a href="#goals">Goals</a>
+<a href="#design">Design and Dev</a>
+<a href="#gen">Procedural Generation</a>
+<a href="#shaders">Shaders</a>
+<a href="#audio">Audio</a></p>
+<h2><a id="goals"></a> Project Goals</h2>
+<div class="sidebar-container">
+<div class="sidebar-text">
+<ul>
+<li>Translate Downwell's mechanical and visual elements into first-person 3d
+<ul>
+<li>Procedural level generation</li>
+<li>Some of the same enemies and gunboots (weapons)</li>
+<li>Caves with shops, gem piles, or weapons</li>
+<li>Shop items and Combos earn health/energy upgrades</li>
+<li>Palette swaps!</li>
+</ul>
+</li>
+<li>Recall the game feel of Downwell - punchy arcade action</li>
+<li>Limit of 3 colors and simple controls, like the original</li>
+</ul>
+</div>
+<div class="sidebar-media overflow-right">
+<p class="media"><video autoplay loop muted playsinline src="dropchute_shop.webm"></video></p>
+<p class="caption">At the shop in <strong>Dropchute</strong>, with the seafoam palette.</p>
+</div>
+</div>
+<h3>Inspirations</h3>
+<div class="sidebar-container">
+<div class="sidebar-text">
+<p>I had kicked around the idea of converting a 2d game to 3d since seeing how well it worked for Risk of Rain 1-&gt;2. Of course, it's something many game series did in the 90s when 3d gaming emerged. But with indie titles being super creative in the 2d space and with better understanding+tools for 3d games, it feels worth exploring more. Reimagining pixel art games is particularly interesting to me because their visual designs feel dialed-in to the essential forms, simply as a limitation of the medium.</p>
+<p>Downwell is one of my favorite short games. It feels very <em>economical</em>, simple but perfectly tuned elements work in harmony. This made it a great jumping off point for a jam, even if the functional mechanics were going to be overhauled. I was thrilled to see that the designer of Downwell, <a href="https://twitter.com/OjiroFumoto">Ojiro Fumoto</a>, enjoyed seeing my 3d remix of Downwell.</p>
+</div>
+<div class="sidebar-media overflow-right">
+<p><img src="downwell_ref.gif" alt="downwell"></p>
+<p class="caption">Playing <strong>Downwell</strong></p>
+</div>
+</div>
+<h2><a id="design"></a> Design and Dev</h2>
+<h3>Player and Camera</h3>
+<p>To control the player, I started with the popular <a href="https://assetstore.unity.com/packages/tools/physics/kinematic-character-controller-99131">Kinematic Character Controller</a>. I like how the asset gives you full control of the movement logic while encapsulating the underlying collision system. I hooked that up with Unity's new input system - it has some quirks but I appreciate how it abstracts multiple input types into actions. Even for small projects gamepad input is a priority for me because I just enjoy using one, but most players will use keyboard+mouse.</p>
+<p>The player movement is snappy, with high acceleration starting and stopping, identical on the ground and in the air. Jumps are variable height and there's some 'coyote time' after walking off a ledge.</p>
+<p>Camera aiming without using the right analog stick or mouse was a fun design challenge. If I could ditch any need to look left or right, I'd only need to adjust the pitch. It seems clear enough that if the player is on the ground they don't want to be looking down, but I also wanted to be able to peek over ledges so you could see what challenges lie below. So to determine the camera pitch, I use a series of raycasts which detect floors and walls in front of the player, as well as other contextual clues like if the player is jumping.</p>
+<p class="media"><video autoplay loop muted playsinline src="camera_tilt.webm"></video></p>
+<p class="caption">Red lines / green line are raycasts used to calculate the camera pitch.</p>
+<p>Implementing caves without camera rotation also required a creative solution. Since the caves are completely safe, you don't need to be able to see where you're going on the way in. So all the cave entrances are on the back-side of the well, allowing the player to see obstacles as they exit the cave. An arrow pointing into the cave should help players know it's safe to back into the entrance.</p>
+<h3>Weapons</h3>
+<div class="sidebar-container">
+<div class="sidebar-text">
+<p>There are four weapons (/gunboots) in Dropchute. Three are based on Downwell weapons, and one original to this game.</p>
+<ul>
+<li>Machinegun - starter weapon, good ammo/energy efficiency but mediocre range and damage</li>
+<li>Shotgun - 3 energy to fire 8 bullets in a wide spread at short range</li>
+<li>Laser - 4 energy, fires a laser for heavy damage and penetrates enemies</li>
+<li>Rifle - new weapon, notable for longer range which is more relevant in 3d, otherwise a double-power, double-energy machinegun</li>
+</ul>
+</div>
+<div class="sidebar-media overflow-right">
+<p class="media"><video autoplay loop muted playsinline src="shotgun.webm"></video></p>
+<p>Shotgun, featuring my favorite palette, OldNCold.</p>
+</div>
+</div>
+<div class="sidebar-container">
+<div class="sidebar-text">
+<p>Weapons data is stored in <code>ScriptableObject</code>s. I use OdinInspector to streamline the process with serialization of polymorphic types. It's a pattern that's functionally the same with vanilla <code>ScriptableObject</code> inheritance but for me serializing regular C# classes produces cleaner code, fewer files, and easy extension later if I want nested trees of serialized polymorphic objects.</p>
+<p>I tried to replicate some details of how different weapons felt in Downwell. So there's a number of stats for each weapon, controlling recoil, bullet spread, velocity over bullet lifetime, automatic fire rate, etc.<br>
+Even though I only made 4 weapons, I'm happy with how extensible the system is. It's quick to add weapons, and if I added an upgrade/relic system it would be easy to modify weapon attributes on the fly.</p>
+</div>
+<div class="sidebar-media overflow-right">
+<p class="media"><img src="weaponDefinition.png" alt="weapon definition script"></p>
+</div>
+</div>
+<h3>Enemies</h3>
+<p>The first thing I modeled for this project was some enemies. I love reimagining pixel art sprites in 3d. They simply use vertex colors instead of texturing. I followed some of the Downwell color conventions - enemies that are mostly white on top can be stomped on, mostly red have to be taken out with your weapon.</p>
+<p class="media"><video autoplay loop muted playsinline src="dropchute1_enemies.webm"></video></p>
+<p>All of them are takes on Downwell enemies, but I changed some behaviors. The snails in Dropchute have spikes that fire outwards periodically. The evil eye AI tries to go to a location below the player before attacking them directly - this actually helps them intercept a descending player more often. Enemies have some variations - versions that are faster, have more spikes, or have attachments.</p>
+<p>Attachments are a new concept, there are two types: damage crescents and shields. Damage crescents add rotating hurtboxes around an enemy, shields act like the turtle shell and block bullets.</p>
+<p>I tried to use these ideas to make navigating the 3d space more challenging. More difficult enemies and variations spawn the further the player falls. In the end, this wasn't enough on its own, I also increase the player's terminal velocity + gravity with depth to make the game difficult. I think with more enemy types and traps it would be possible to have all the difficulty come from a bullet-hell-like descent.</p>
+<p>When enemies get stomped or hit by bullets, a hitstop effect amplifies the impact: freezing them in place, boosting their scale, and flashing white.</p>
+<h2><a id="gen"></a> Procedural Generation</h2>
+<p>The well/chute is generated endlessly from a set of <code>SectionSpawner</code> prefabs. Instead of instantiating copies of these prefabs, they're used to create <code>WellSection</code>s and <code>Entity</code>s.</p>
+<ul>
+<li><code>WellSection</code> holds the static geometry of a level section.
+<ul>
+<li>This includes the walls and any blocks that always spawn with the well section.</li>
+<li>The top and bottom bounds and total height of the section are defined here. This allows the <code>WellBuilder</code> to fit sections together.</li>
+<li>A transform for a <code>CaveInsertionPoint</code> can be specified if a cave can be inserted into the wall of the section.</li>
+<li>Use object pooling for efficient creation and removal.</li>
+</ul>
+</li>
+<li>An <code>Entity</code> is any single object that can be spawned with some probability and removed.
+<ul>
+<li>Use object pooling</li>
+<li>Enemies, destructible blocks, spikes, and terrain blocks that spawn with some chance all use the <code>Entity</code> component.</li>
+<li>A <code>Dynamic</code> boolean notes if the entity can move between well sections (explained later).</li>
+<li>A <code>SpawnProbability</code> controls whether an entity is spawned. This has four factors:
+<ul>
+<li>base chance</li>
+<li>depth chance modifier: a positive or negative number that adds or subtracts from the base chance depending on the player depth. E.g. at 300, the base chance will be increased by .5 when the player is at 150 depth.</li>
+<li>min depth: the depth chance modifier starts counting from this depth, and the entity never spawns above this depth.</li>
+<li>max chance: the spawn chance will never be increased above this when the depth chance modifier is applied.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>SpawnProbabilityGroup</code>s are also tracked by the <code>SectionSpawner</code>.
+<ul>
+<li>Allows linking the chance of spawning multiple entities or terrain blocks</li>
+<li>For example a group may contain:
+<ul>
+<li>Destructible blocks with 1.0 spawn chance</li>
+<li>Enemy that stands on the blocks with 0.5 spawn chance</li>
+</ul>
+</li>
+<li>Spawning of the entire group is controlled by a <code>SpawnProbability</code></li>
+</ul>
+</li>
+</ul>
+<p class="media-fixed-scale"><img src="sectionSpawner.png" alt="Section Spawner Prefab"></p>
+<p class="caption"><code>SectionSpawner</code> prefab, with <code>WellSection</code> selected showing the top and bottom sizes.<br>
+All the possible enemies and blocks that have a chance of spawning can be seen.</p>
+<p><code>OnValidate()</code> is used by <code>SectionSpawner</code> to preprocess the children of the prefab root, finding <code>Entity</code>s and saving their transform information + a link to their original prefab. Without getting into too much detail on the object pooling system, this allows any <code>Entity</code> with the same original prefab to be object pooled together, while using unique transform and <code>SpawnProbability</code> settings.</p>
+<div class="sidebar-container">
+<div class="sidebar-text">
+<p><code>WellBuilder</code> creates and removes sections according to the player position. Using the <code>WellSection</code> top and bottom bounds, it chooses pieces that are within a threshold of fitting together. A <code>WellSection</code> that supports a cave is inserted at a set interval + some random variation. Sections and caves are chosen randomly, but with reduced probability of grabbing the same piece multiple times before other pieces are chosen.</p>
+<p>Thresholds are set below the player to create new sections and above the player to remove sections. This is where the <code>Dynamic</code> property of entities is used. <code>WellSection</code>s store a reference to non-<code>Dynamic</code> entities when they're spawned, so these can be removed with the rest of the <code>WellSection</code> without checking individual locations. <code>Dynamic</code> entities might be moving up and down in the well, so they handle their own removal relative to the player position.</p>
+<p>When the player falls too far from the origin, the entire game is moved back up seamlessly to make sure floating point errors aren't introduced.</p>
+</div>
+<div class="sidebar-media overflow-right">
+<p class="media"><video autoplay loop muted playsinline src="droppin2_small.webm"></video></p>
+<p class="caption">Early testing of the <code>WellBuilder</code> with a very low<br>
+threshold for rebasing the well back to the origin.<br>
+The player is near the red square.</p>
+</div>
+</div>
+<p>Overall I think the set of pieces I created for well generation (16 total) could have more variation, and there's occasional sloppyness with the placement of some enemies and objects. It would be nice to have more unique gimmick pieces that spawn rarely (like you have to blow up some destructible spike blocks to get through). It's just a bit time consuming to construct and curate many <code>SectionSpawner</code> prefabs for a small project.</p>
+<h2><a id="shaders"></a> Shaders</h2>
+<h3>Environment Shader</h3>
+<div class="sidebar-container">
+<div class="sidebar-text">
+<p>The game uses URP and all shaders were made with shader graph + a few custom nodes. With just 2 colors for the environment (black and white), I decided to lean heavily into dithering to convey distance and provide visual interest for the terrain.</p>
+<p>All the walls and blocks in the game use a terrain shader which mixes:</p>
+<ol>
+<li>UV Mapped texture</li>
+<li>Triplanar mapped texture</li>
+<li>3D Noise for variation over world position</li>
+</ol>
+<p>The grayscale result is overlaid with a screenspace dither, and finally a step node forces the output into black or white.</p>
+</div>
+<div class="sidebar-media overflow-right">
+<p class="media"><video autoplay loop muted playsinline src="dropchute_terrain.webm"></video></p>
+</div>
+</div>
+<p class="media-fixed-scale"><img src="terrain_shader.png" alt="terrain shader"></p>
+<p class="caption">Simplified terrain shader example.</p>
+<p>The full graph has some more features:</p>
+<ul>
+<li>Variables to control the influence of the 3 sources. This way, materials for things such as the destructible blocks can primarily show the UV texture which highlights the edges of the cube. Walls and larger blocks use materials with stronger influence from noise and the triplanar mapped texture.</li>
+<li>The 3D noise repeats over a Y-distance set by script. This is important for the seamless endless falling technique mentioned above, otherwise when the game is snapped back to the origin the wall texture would suddenly have a different noise pattern.</li>
+</ul>
+<h3>Object Shaders</h3>
+<p>Other objects used simple vertex color shaders. For enemies, a variable can brighten the whole mesh when hit by bullets. Gems have a fake reflection using the view normal. Outlines for things like gems and spikes are just implemented in Blender with the flipped normals trick.</p>
+<div class="sidebar-container">
+<div class="sidebar-text">
+<p>The Timebubble is two sphere meshes, red and white vertex colored. Vertex positions are jiggled by noise modulated by time. The shader is transparent (rather than just alpha cutout) so that the depth texture can be used to highlight areas where the bubble nears intersection with terrain. The view normal is also used to make the edges of the bubble visible.</p>
+</div>
+<div class="sidebar-media">
+<p class="media"><video autoplay loop muted playsinline src="dropchute_timebubble.webm"></video></p>
+</div>
+</div>
+<h3>Screen Effects</h3>
+<p>Two shaders are applied to the whole screen, distance fading and the palette. To apply their materials I use two instances of a <code>ScriptableRendererFeature</code> named <code>Blit</code>, based on <a href="https://cyangamedev.wordpress.com/2020/06/22/urp-post-processing/">this one by Cyanilux</a> (excellent tutorials about everything URP!). In Dropchute, I use camera stacking to draw the UI/HUD on top of the game, and here it's important to insert the two <code>Blit</code> effects one time each in the correct order:</p>
+<ol>
+<li>Render game camera</li>
+<li>Apply distance fading</li>
+<li>Render UI camera</li>
+<li>Apply palette</li>
+</ol>
+<p>By default, the <code>Blit</code> features would run at some point during each camera render. Not only is this unnecessary, but the UI would be erased by distance fading when the level geometry behind it was far away. My edit takes a look at some data attached to the Camera component found in <code>RenderingData</code> in the <code>AddRenderPasses</code> method to only insert the render pass for the correct camera. This works perfectly even though it feels a bit hacky - I'm curious if there's a more elegant way to do it, or if this is just something Unity plans to fix by supporting custom effects in the Volume system.</p>
+<div class="sidebar-container">
+<div class="sidebar-text">
+<p>The distance fading shader looks at the scene depth and uses dithering to fade out objects in the distance. This helps the game look less cluttered and makes falling quickly more risky.</p>
+<p>The palette shader uses the incoming color values to sample from a palette texture. A <code>PaletteSwapper</code> script references the <code>Blit</code> renderer feature to swap the material texture according to a settings menu slider.</p>
+</div>
+<div class="sidebar-media">
+<p class="sidebar-media"><img src="/pages/dropchute/paletteSwapper.png" alt="PaletteSwapper"></p>
+</div>
+</div>
+<h2><a id="audio"></a> Audio</h2>
+<p>The sounds and music of Downwell have a wonderful arcadey, crunchy aesthetic (credit <a href="https://twitter.com/KissaKolme">Joonas Turner</a> and <a href="https://twitter.com/strotchy">Eirik Suhrke</a>). My amateur sound and music creation for Dropchute involved:</p>
+<ul>
+<li>The <a href="https://www.tritik.com/product/krush/">Krush</a> VST to emulate some of the creative bitcrushing going on in the Downwell</li>
+<li><a href="https://pixwlk.itch.io/bleeper">Bleeper</a> for chiptune-y layers in some sound effects</li>
+<li>Sound effects from Splice</li>
+<li>Bitwig to layer Splice and Bleeper sounds, apply Krush and other effects</li>
+<li>Bitwig to compose the main track below, an above ground variation, and shop music (with a secret alternative inspiration)</li>
+</ul>
+<p class="caption">Tumblehole.mp3</p>
+<div class="caption">
+<audio controls>
+  <source src="tumblehole.mp3" type="audio/mp3">
+</audio>
+</div>
+<p class="hero-image"><img src="/pages/dropchute/preview.png" alt="Dropchute"></p>

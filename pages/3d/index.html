@@ -11,7 +11,7 @@
     <title>3d art</title>
 
     <link href="/css/styles.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Merriweather&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -28,27 +28,29 @@
     <main >
         <article>
 <h1>Other 3d stuff</h1>
-<p class="media-fixed-scale"><img src="./media/house.png" alt="House"></p>
-<p>Playing around with isometric perspective. Camera is angled at (60, 0, 45), and the film pixel filter width is 0.01px to get those sharp pixel edges.<br>
+<div class="sidebar-container">
+<p class="sidebar-text">Playing around with isometric perspective. Camera is angled at (60, 0, 45), and the film pixel filter width is 0.01px to get those sharp pixel edges.<br>
 <a href="./media/house_tri.png">Same house from a &quot;trimetric&quot; perspective.</a><br>
-Generating looks similar to pixel art from 3D is appealing to me. I'd like to make a game in a similar style someday.</p>
+It's satisfying to render 3d models with the clean lines of pixel art. I'd like to make a game in a similar style someday.</p>
+<p class="sidebar-media"><img src="./media/house.png" alt="House"></p>
+</div>
 <hr>
 <div class="sidebar-container">
 <p class="sidebar-media"><video autoplay loop muted playsinline src="media/tv.webm"></video></p>
 <p class="sidebar-text">Tube TV enemy for a gamejam.<br>
-Some other enemies, rigged and animated:<br>
+Some other enemies that I rigged and animated:<br>
 <a href="./media/cat.webm">cat slime</a>
 <a href="./media/floater.webm">floater</a>
 <a href="./media/eye.webm">rolling eye</a><br>
-(these 3 designed by Sammy Mahmoudi, and modelled by Richard Klassen)<br>
-We were going for a bit of a claymation style. These are captured from Unity, where I made a simple shader that uses 3d noise to adjust color and vertex displacement every few frames. I used constant interpolation in the animations and limited keyframes to every 3-6 frames, though next time I would exaggerate the stop-motion look with even fewer keyframes.</p>
+(above 3 designed by Sammy Mahmoudi, and modelled by Richard Klassen)<br>
+We were going for a claymation style. These are captured from Unity, where I made a simple shader that uses 3d noise to adjust color and vertex displacement every few frames. I used constant interpolation in the animations and limited keyframes to every 3-6 frames. Next time I would exaggerate the stop-motion look with even fewer keyframes.</p>
 </div>
         </article>
     </main>
-    <div class="right">
+    <!--<div class="right">
         <div class="bgchanger" id="bgdark"></div>
         <div class="bgchanger" id="bglight"></div>
-    </div>
+    </div>-->
     <footer id="footer">
     <hr/>
     <h4><a href="/">Home</a></h4>
