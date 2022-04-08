@@ -452,36 +452,43 @@ nav ul li img {
   padding: 0.3em 0.1em 0em 0em;
 }
 
+/*
 a.nav-dark {
-  color: #1d2833;
-  text-decoration: none;
-}
-a.nav-dark:hover, a.nav-dark:focus {
-  color: #E83F6F;
-  text-decoration: none;
-  box-shadow: -4px 0px 0px 0px #1d2833, 3px 0px 0px 0px #1d2833;
-  background: #1d2833;
+    color: $bg-color-light;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        color: $font-color-button;
+        text-decoration: none;
+        box-shadow: -4px 0px 0px 0px $bg-color-dark,
+                    3px 0px 0px 0px $bg-color-dark;
+        background: $bg-color-dark;
+    }
 }
 
 a.nav-light {
-  color: #55e0ad;
-  text-decoration: none;
-}
-a.nav-light:hover, a.nav-light:focus {
-  color: #E83F6F;
-  text-decoration: none;
-  box-shadow: -4px 0px 0px 0px #1d2833, 3px 0px 0px 0px #1d2833;
-  background: #1d2833;
+    color: $font-color-link;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        color: $font-color-button;
+        text-decoration: none;
+        box-shadow: -4px 0px 0px 0px $bg-color-dark,
+                    3px 0px 0px 0px $bg-color-dark;
+        background: $bg-color-dark;
+    }
 }
 
 .bg-dark {
-  background-color: #1d2833;
+    background-color: $bg-color-dark;
 }
 
 .bg-light {
-  background-color: #1d2833;
+    background-color: $bg-color-light;
 }
-
+*/
 #footer {
   grid-area: footer;
   align-self: end;
