@@ -74,7 +74,7 @@ body {
     line-height: $base-line-height*.9;
 
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     grid-template-rows: auto 1fr auto;
     grid-template-areas: 
         "header"
@@ -84,7 +84,7 @@ body {
     @media #{$mq-small} {
         font-size: 1em;
         line-height: $base-line-height;
-        grid-template-columns: 12em 1fr;
+        grid-template-columns: 12em minmax(0, 1fr);
         grid-template-rows: 1fr auto;
         grid-template-areas: 
             "header main right"
@@ -118,12 +118,7 @@ body {
 
 main {
     grid-area: main;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    grid-gap: .5em;
-    align-content: start;
+    display: block;
 }
 
 .right {
@@ -137,16 +132,9 @@ main {
 }
 
 article {
-    grid-column: span 2;
     background-color: $bg-color-light;
     height: 100%;
     overflow: visible;
-    
-    border-width: 0px;
-    border-right: 0px;
-    border-left: 0px;
-    border-color: $font-color-link;
-    border-style: solid;
 }
 
 .intro {
@@ -324,7 +312,7 @@ li {
     position: relative;
 
     > img {
-        max-width: 100%;
+        max-width: 100vw;
     }
 
     @media #{$mq-small} {
@@ -355,7 +343,7 @@ li {
     text-align: center;
     min-width: 100%;
     max-width: none;
-    margin: 0 -125%;
+    margin: 0 -25%;
 
     > img {
         max-width: 100%;
