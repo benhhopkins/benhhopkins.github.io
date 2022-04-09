@@ -15,6 +15,7 @@ body {
   min-height: 100%;
   margin: 0px;
   width: 100%;
+  overflow-x: hidden;
   background-color: #1d2833;
   color: #cfd7e9;
   font-size: 0.9em;
@@ -246,24 +247,40 @@ li > ul {
 }
 
 .media-fixed-scale {
-  background-color: #1d2833;
   line-height: 0em;
   padding: 0em;
   image-rendering: pixelated;
   text-align: center;
-  min-width: 100%;
-  max-width: none;
-  margin: 0 -25%;
-}
-
-.full-width {
-  left: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  max-width: 100vw;
+  min-width: 100vw;
   position: relative;
-  right: 50%;
-  width: 100vw;
+}
+.media-fixed-scale > img {
+  max-width: 100%;
+}
+@media (min-width: 40em) {
+  .media-fixed-scale {
+    left: -12em;
+  }
+}
+@media (min-width: 60em) {
+  .media-fixed-scale {
+    left: -12em;
+  }
+}
+@media (min-width: 100em) {
+  .media-fixed-scale {
+    left: -15em;
+  }
+}
+@media (min-width: 140em) {
+  .media-fixed-scale {
+    left: -20em;
+  }
+}
+@media (min-width: 200em) {
+  .media-fixed-scale {
+    left: -30em;
+  }
 }
 
 .media-group {

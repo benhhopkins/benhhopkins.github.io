@@ -262,7 +262,7 @@ The palette shader uses the incoming color values to sample from a palette textu
 ## <a id="audio"></a> Audio
 
 The sounds and music of Downwell have a wonderful arcadey, crunchy aesthetic (credit [Joonas Turner](https://twitter.com/KissaKolme) and [Eirik Suhrke](https://twitter.com/strotchy)). My amateur sound and music creation for Dropchute involved:
-- The [Krush](https://www.tritik.com/product/krush/) VST to emulate some of the creative bitcrushing going on in the Downwell
+- The [Krush](https://www.tritik.com/product/krush/) VST to emulate some of the creative bitcrushing going on in Downwell
 - [Bleeper](https://pixwlk.itch.io/bleeper) for chiptune-y layers in some sound effects
 - Sound effects from Splice
 - Bitwig to layer Splice and Bleeper sounds, apply Krush and other effects
