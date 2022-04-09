@@ -301,6 +301,7 @@ li {
     text-align: center;
     line-height: 0em;
     padding: 0em;
+    max-width: min(100%, 100vw);
 }
 
 .media img {
@@ -309,11 +310,15 @@ li {
     image-rendering: pixelated;
 }
 
-.media-fixed-scale {
+.media video {
+    max-width: 100%;
+    height: auto;
+}
+
+.media-full-width {
     line-height: 0em;
     padding: 0em;
     image-rendering: pixelated;
-    text-align: center;
     
     min-width: 100vw;
     position: relative;
@@ -330,16 +335,30 @@ li {
         left: -12em;
     }
   
-    @media #{$mq-xlarge} {
-        left: -15em;
-    }
+    // @media #{$mq-xlarge} {
+    //     left: -15em;
+    // }
   
-    @media #{$mq-xxlarge} {
-        left: -20em;
-    }
+    // @media #{$mq-xxlarge} {
+    //     left: -20em;
+    // }
 
-    @media #{$mq-xxxlarge} {
-        left: -30em;
+    // @media #{$mq-xxxlarge} {
+    //     left: -30em;
+    // }
+}
+
+.media-fixed-scale {
+    line-height: 0em;
+    padding: 0em;
+    image-rendering: pixelated;
+    text-align: center;
+    min-width: 100%;
+    max-width: none;
+    margin: 0 -125%;
+
+    > img {
+        max-width: 100%;
     }
 }
 

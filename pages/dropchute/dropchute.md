@@ -155,7 +155,7 @@ The well/chute is generated endlessly from a set of `SectionSpawner` prefabs. In
     - Enemy that stands on the blocks with 0.5 spawn chance
   - Spawning of the entire group is controlled by a `SpawnProbability`
 
-![Section Spawner Prefab](sectionSpawner.png) {.media-fixed-scale}
+![Section Spawner Prefab](sectionSpawner.png) {.media-full-width}
 
 `SectionSpawner` prefab, with `WellSection` selected showing the top and bottom sizes.  
 All the possible enemies and blocks that have a chance of spawning can be seen. {.caption}
@@ -209,7 +209,7 @@ The grayscale result is overlaid with a screenspace dither, and finally a step n
 </div>
 </div>
 
-![terrain shader](terrain_shader.png) {.media-fixed-scale}
+![terrain shader](terrain_shader.png) {.media-full-width}
 
 Simplified terrain shader example. {.caption}
 

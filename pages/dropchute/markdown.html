@@ -121,7 +121,7 @@ Even though I only made 4 weapons, I'm happy with how extensible the system is. 
 </ul>
 </li>
 </ul>
-<p class="media-fixed-scale"><img src="sectionSpawner.png" alt="Section Spawner Prefab"></p>
+<p class="media-full-width"><img src="sectionSpawner.png" alt="Section Spawner Prefab"></p>
 <p class="caption"><code>SectionSpawner</code> prefab, with <code>WellSection</code> selected showing the top and bottom sizes.<br>
 All the possible enemies and blocks that have a chance of spawning can be seen.</p>
 <p><code>OnValidate()</code> is used by <code>SectionSpawner</code> to preprocess the children of the prefab root, finding <code>Entity</code>s and saving their transform information + a link to their original prefab. Without getting into too much detail on the object pooling system, this allows any <code>Entity</code> with the same original prefab to be object pooled together, while using unique transform and <code>SpawnProbability</code> settings.</p>
@@ -156,7 +156,7 @@ The player is near the red square.</p>
 <p class="media"><video autoplay loop muted playsinline src="dropchute_terrain.webm"></video></p>
 </div>
 </div>
-<p class="media-fixed-scale"><img src="terrain_shader.png" alt="terrain shader"></p>
+<p class="media-full-width"><img src="terrain_shader.png" alt="terrain shader"></p>
 <p class="caption">Simplified terrain shader example.</p>
 <p>The full graph has some more features:</p>
 <ul>
