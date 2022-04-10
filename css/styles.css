@@ -355,14 +355,6 @@ li > ul {
 .sidebar-text {
   flex: 20 1 10em;
 }
-.sidebar-text > p {
-  padding: 0.5em 1em 0.5em 1em;
-}
-@media (min-width: 60em) {
-  .sidebar-text {
-    padding: 0.5em 1em 0.5em 1em;
-  }
-}
 
 .caption {
   font-style: italic;

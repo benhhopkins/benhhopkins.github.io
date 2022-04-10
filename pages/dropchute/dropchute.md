@@ -25,7 +25,7 @@ For [Inspire Jam](https://itch.io/jam/inspirejam), I reinterpreted the game [Dow
 
 - Translate Downwell's mechanical and visual elements into first-person 3d
     - Procedural level generation
-    - Some of the same enemies and gunboots (weapons)
+    - Some of the same enemies and weapons
     - Caves with shops, gem piles, or weapons
     - Shop items and Combos earn health/energy upgrades
     - Palette swaps!
@@ -49,7 +49,7 @@ At the shop in **Dropchute**, with the seafoam palette. {.caption}
 <div class="sidebar-container">
 <div class="sidebar-text">
 
-I had kicked around the idea of converting a 2d game to 3d since seeing how well it worked for Risk of Rain 1->2. Of course, it's something many game series did in the 90s when 3d gaming emerged. But with indie titles being super creative in the 2d space and with better understanding+tools for 3d games, it feels worth exploring more. Reimagining pixel art games is particularly interesting to me because their visual designs feel dialed-in to the essential forms, simply as a limitation of the medium.
+I had kicked around the idea of converting a 2d game to 3d since seeing how well it worked for Risk of Rain 1 → 2. Of course, it's something many game series did in the 90s when 3d gaming emerged. But with indie titles being super creative in the 2d space and with better understanding+tools for 3d games, it feels worth exploring more. Reimagining pixel art games is particularly interesting to me because their visual designs feel dialed-in to the essential forms, simply as a limitation of the medium.
 
 Downwell is one of my favorite short games. It feels very *economical*, simple but perfectly tuned elements work in harmony. This made it a great jumping off point for a jam, even if the functional mechanics were going to be overhauled. I was thrilled to see that the designer of Downwell, [Ojiro Fumoto](https://twitter.com/OjiroFumoto), enjoyed seeing my 3d remix of Downwell.
 
@@ -84,7 +84,7 @@ Implementing caves without camera rotation also required a creative solution. Si
 <div class="sidebar-container">
 <div class="sidebar-text">
 
-There are four weapons (/gunboots) in Dropchute. Three are based on Downwell weapons, and one original to this game.
+There are four weapons in Dropchute. Three are based on Downwell weapons, and one original to this game.
 - Machinegun - starter weapon, good ammo/energy efficiency but mediocre range and damage
 - Shotgun - 3 energy to fire 8 bullets in a wide spread at short range
 - Laser - 4 energy, fires a laser for heavy damage and penetrates enemies

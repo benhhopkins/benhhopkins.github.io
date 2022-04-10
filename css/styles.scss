@@ -425,14 +425,6 @@ li {
 
 .sidebar-text {
     flex: 20 1 10em;
-
-    > p {
-        padding: .5em 1em .5em 1em;
-    }
-
-    @media #{$mq-medium} {
-        padding: .5em 1em .5em 1em;
-    }
 }
 
 .caption {
