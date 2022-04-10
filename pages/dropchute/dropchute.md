@@ -132,16 +132,16 @@ When enemies get stomped or hit by bullets, a hitstop effect amplifies the impac
 
 ## <a id="gen"></a> Procedural Generation
 
-The well/chute is generated endlessly from a set of `SectionSpawner` prefabs. Instead of instantiating copies of these prefabs, they're used to create `WellSection`s and `Entity`s.
+The stage is generated endlessly from a set of `SectionSpawner` prefabs. Instead of instantiating copies of these prefabs, they're used to create `WellSection`s and `Entity`s.
 
 - `WellSection` holds the static geometry of a level section.
   - This includes the walls and any blocks that always spawn with the well section.
   - The top and bottom bounds and total height of the section are defined here. This allows the `WellBuilder` to fit sections together.
   - A transform for a `CaveInsertionPoint` can be specified if a cave can be inserted into the wall of the section.
   - Use object pooling for efficient creation and removal.
-- An `Entity` is any single object that can be spawned with some probability and removed.
-  - Use object pooling
-  - Enemies, destructible blocks, spikes, and terrain blocks that spawn with some chance all use the `Entity` component.
+- The `Entity` component is used by game objects that are spawned and destroyed/removed.085
+  - Enables object pooling and spawn chance.
+  - Enemies, destructible blocks, and spikes all use the `Entity` component.
   - A `Dynamic` boolean notes if the entity can move between well sections (explained later).
   - A `SpawnProbability` controls whether an entity is spawned. This has four factors:
     - base chance
@@ -149,7 +149,7 @@ The well/chute is generated endlessly from a set of `SectionSpawner` prefabs. In
     - min depth: the depth chance modifier starts counting from this depth, and the entity never spawns above this depth.
     - max chance: the spawn chance will never be increased above this when the depth chance modifier is applied.
 - `SpawnProbabilityGroup`s are also tracked by the `SectionSpawner`.
-  - Allows linking the chance of spawning multiple entities or terrain blocks
+  - Allows linking the chance of spawning entities and terrain blocks
   - For example a group may contain:
     - Destructible blocks with 1.0 spawn chance
     - Enemy that stands on the blocks with 0.5 spawn chance
