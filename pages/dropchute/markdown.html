@@ -83,7 +83,7 @@ Even though I only made 4 weapons, I'm happy with how extensible the system is. 
 <p>I tried to use these ideas to make navigating the 3d space more challenging. More difficult enemies and variations spawn the further the player falls. In the end, this wasn't enough on its own, I also increase the player's terminal velocity + gravity with depth to make the game difficult. I think with more enemy types and traps it would be possible to have all the difficulty come from a bullet-hell-like descent.</p>
 <p>When enemies get stomped or hit by bullets, a hitstop effect amplifies the impact: freezing them in place, boosting their scale, and flashing white.</p>
 <h2><a id="gen"></a> Procedural Generation</h2>
-<p>The well/chute is generated endlessly from a set of <code>SectionSpawner</code> prefabs. Instead of instantiating copies of these prefabs, they're used to create <code>WellSection</code>s and <code>Entity</code>s.</p>
+<p>The stage is generated endlessly from a set of <code>SectionSpawner</code> prefabs. Instead of instantiating copies of these prefabs, they're used to create <code>WellSection</code>s and <code>Entity</code>s.</p>
 <ul>
 <li><code>WellSection</code> holds the static geometry of a level section.
 <ul>
@@ -93,10 +93,10 @@ Even though I only made 4 weapons, I'm happy with how extensible the system is. 
 <li>Use object pooling for efficient creation and removal.</li>
 </ul>
 </li>
-<li>An <code>Entity</code> is any single object that can be spawned with some probability and removed.
+<li>The <code>Entity</code> component is used by game objects that are spawned and destroyed/removed.085
 <ul>
-<li>Use object pooling</li>
-<li>Enemies, destructible blocks, spikes, and terrain blocks that spawn with some chance all use the <code>Entity</code> component.</li>
+<li>Enables object pooling and spawn chance.</li>
+<li>Enemies, destructible blocks, and spikes all use the <code>Entity</code> component.</li>
 <li>A <code>Dynamic</code> boolean notes if the entity can move between well sections (explained later).</li>
 <li>A <code>SpawnProbability</code> controls whether an entity is spawned. This has four factors:
 <ul>
@@ -110,7 +110,7 @@ Even though I only made 4 weapons, I'm happy with how extensible the system is. 
 </li>
 <li><code>SpawnProbabilityGroup</code>s are also tracked by the <code>SectionSpawner</code>.
 <ul>
-<li>Allows linking the chance of spawning multiple entities or terrain blocks</li>
+<li>Allows linking the chance of spawning entities and terrain blocks</li>
 <li>For example a group may contain:
 <ul>
 <li>Destructible blocks with 1.0 spawn chance</li>
