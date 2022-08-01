@@ -39,15 +39,15 @@ John D. Leon: Sound Effects - <a href="https://www.johndleon.com/">https://www.j
 </ul>
 <div class="sidebar-container">
 <div class="sidebar-text">
-<p>We were inspired by the jam theme to make dice rolls part of the level up screen. <a href="https://boz-float.itch.io/">Boz</a> created a neat mechanic where 3 dice are rolled on each level up, which the player can allocate to slots that increase weapon and upgrade power. It adds some depth to your levelling decisions, on top of figuring out how to maximize synergy betweeen your weapons and upgrades.</p>
+<p>We were inspired by the jam theme to make dice rolls part of the level up screen. <a href="https://boz-float.itch.io/">Boz</a> created a neat mechanic where 3 dice are rolled on each level up, which the player can allocate to slots that increase weapon and upgrade power. It adds some depth to your leveling decisions, on top of figuring out how to maximize synergy between your weapons and upgrades.</p>
 </div>
 <div class="sidebar-media overflow-right">
 <p class="media"><img src="./screen2.png" alt="level screen"></p>
 <p class="caption">Upgrade screen by Boz.</p>
 </div>
 </div>
-<p>I adapted some code from my <a href="../dropchute/">Dropchute</a> project for collision interactions, enemy hitstop, and character control. While enemy behavior simple (just moving directly to the player or to a point), it was a priority to make large numbers of enemies move smoothly across the map. I used the <a href="https://gamma.cs.unc.edu/RVO2/">RVO2</a> library which simulates collision avoidance for large numbers of agents. This is more performant than using Unity physics, and creates a better flowing movement of enemy agents, even when they want to move in opposing directions.</p>
-<p><a href="https://aguynamededward.itch.io/">Words</a> helped out with enemy design, with ideas for intimidating monoliths that block aerial movement and hornet-type enemies that are very quick but periodically have to rest briefly. In addition to the slow virus hordes, I created a bunch of levelled variations of these enemies that could be used in increasingly difficult attack waves.</p>
+<p>I adapted some code from my <a href="../dropchute/">Dropchute</a> project for collision interactions, enemy hitstop, and character control. While enemy behavior is simple (just moving directly to the player or to a point), it was a priority to make large numbers of enemies move smoothly across the map. I used the <a href="https://gamma.cs.unc.edu/RVO2/">RVO2</a> library which simulates collision avoidance for large numbers of agents. This is more performant than using Unity physics, and creates a better flowing movement of enemy agents, even when they want to move in opposing directions.</p>
+<p><a href="https://aguynamededward.itch.io/">Words</a> helped out with enemy design, with ideas for intimidating monoliths that block aerial movement and hornet-type enemies that are very quick but periodically have to rest briefly. In addition to the slow virus hordes, I created a bunch of leveled variations of these enemies that could be used in increasingly difficult attack waves.</p>
 <p>The most interesting part of the game design for me was around designing the weapons and how they would interact with upgrades.</p>
 <h2><a id="weapons"></a> Weapons</h2>
 <div class="sidebar-container">
@@ -95,7 +95,7 @@ John D. Leon: Sound Effects - <a href="https://www.johndleon.com/">https://www.j
 <p><strong>Cloud</strong></p>
 <ul>
 <li>Holding the jump button lets you float and creates damaging clouds.</li>
-<li>Levelling this ability increases damage and makes you extra speedy while floating.</li>
+<li>Leveling this ability increases damage and makes you extra speedy while floating.</li>
 <li>Duration is the most important upgrade for this ability - extending the total float time.</li>
 <li>Can be a great way to damage enemies early, but lategame it's a very useful escape tool.</li>
 </ul>
@@ -109,7 +109,7 @@ John D. Leon: Sound Effects - <a href="https://www.johndleon.com/">https://www.j
 <p><strong>Backup</strong></p>
 <ul>
 <li>A shield that provides iframes after being broken, which also creates a blast that damages and slows enemies.</li>
-<li>An easy ability to slot into any build. Even un-levelled, having a shield that can take one hit every ten seconds is helpful.</li>
+<li>An easy ability to slot into any build. Even un-leveled, having a shield that can take one hit every ten seconds is helpful.</li>
 <li>Cooldown upgrades can reduce the time between shields, and duration improves the invulnerable time.</li>
 <li>With upgrades, the shield break deals good damage and can slow already sluggish enemies to a standstill.</li>
 </ul>
@@ -132,7 +132,7 @@ John D. Leon: Sound Effects - <a href="https://www.johndleon.com/">https://www.j
 </div>
 </div>
 <h2><a id="upgrades"></a> Upgrades and Strategy</h2>
-<p>There are 10 upgradable stats that can be levelled.</p>
+<p>There are 10 upgradable stats that can be leveled.</p>
 <ul>
 <li>Attack Size</li>
 <li>Cooldown reduction</li>
@@ -151,11 +151,11 @@ John D. Leon: Sound Effects - <a href="https://www.johndleon.com/">https://www.j
 <p><strong>Quarantine</strong> can also be the main damage dealer. With enough upgrade points in cooldown reduction, attack size, and damage, the whole screen will be blanketed in blasts. But you'll need to be creative in the early and midgame when Quarantine shots are unreliable in targeting the greatest threats.</p>
 <h2><a id="art"></a> Art and Arena</h2>
 <p>We were inspired by the visual style of the Japan-only PS1 game <em>Love and Destroy</em>, which only has a couple of recorded examples online at this time. I really like the game's visual effects, but I didn't have enough time to emulate them properly for this jam. The game's unique color palette did make a big impact on us, as well as the character design.</p>
-<p>The character, who I believe we called ViVi, was made in Blender. It was my first time trying to animate hair with an armature and while it's minimally noticable I think it came out okay. The look of chunky PS1 hands slapping keyboards to type is really funny to me so that's what she does to fire off the attack programs in the game.</p>
+<p>The character, who I believe we called ViVi, was made in Blender. It was my first time trying to animate hair with an armature and while it's minimally noticeable I think it came out okay. The look of chunky PS1 hands slapping keyboards to type is really funny to me so that's what she does to fire off the attack programs in the game.</p>
 <p class="media"><img src="./character.png" alt="ViVi blender"></p>
 <p>I made a shader for the 'cybersea' that uses scene color and depth to bend the tile supports underwater. Noise layers create vertex displacement for waves and coloration. The tile tops emulate some refraction/parallax effects, plus some nonsense scrolling text for flavor.</p>
 <p class="hero-image"><img src="./hexmap.png" alt="arena map"></p>
-<p>I learned about math and implemention for hexagonal grids from <a href="https://www.redblobgames.com/grids/hexagons/">Red Blob Games'</a> excellent tutorial. Each run, the map is created from Perlin noise that is randomly scaled between thresholds, and the height required for a tile to be generated as water or land is also randomized. So some maps are flatter, have more islands and waterways, or more hills and pits. I've found this can make certain strategies better or worse.</p>
+<p>I learned about the math and implementation of hexagonal grids from <a href="https://www.redblobgames.com/grids/hexagons/">Red Blob Games'</a> excellent tutorial. Each run, the map is created from Perlin noise that is randomly scaled between thresholds, and the height required for a tile to be generated as water or land is also randomized. So some maps are flatter, have more islands and waterways, or more hills and pits. I've found this can make certain strategies better or worse.</p>
 <br/>
 <hr>
 <br/>

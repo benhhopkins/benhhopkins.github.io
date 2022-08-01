@@ -58,7 +58,7 @@ Incorporating a jump button was a big departure from our source formula. It was 
 <div class="sidebar-container">
 <div class="sidebar-text">
 
-We were inspired by the jam theme to make dice rolls part of the level up screen. [Boz](https://boz-float.itch.io/) created a neat mechanic where 3 dice are rolled on each level up, which the player can allocate to slots that increase weapon and upgrade power. It adds some depth to your levelling decisions, on top of figuring out how to maximize synergy betweeen your weapons and upgrades.
+We were inspired by the jam theme to make dice rolls part of the level up screen. [Boz](https://boz-float.itch.io/) created a neat mechanic where 3 dice are rolled on each level up, which the player can allocate to slots that increase weapon and upgrade power. It adds some depth to your leveling decisions, on top of figuring out how to maximize synergy between your weapons and upgrades.
 
 </div>
 <div class="sidebar-media overflow-right">
@@ -70,9 +70,9 @@ Upgrade screen by Boz. {.caption}
 </div>
 </div>
 
-I adapted some code from my [Dropchute](../dropchute/) project for collision interactions, enemy hitstop, and character control. While enemy behavior simple (just moving directly to the player or to a point), it was a priority to make large numbers of enemies move smoothly across the map. I used the [RVO2](https://gamma.cs.unc.edu/RVO2/) library which simulates collision avoidance for large numbers of agents. This is more performant than using Unity physics, and creates a better flowing movement of enemy agents, even when they want to move in opposing directions.
+I adapted some code from my [Dropchute](../dropchute/) project for collision interactions, enemy hitstop, and character control. While enemy behavior is simple (just moving directly to the player or to a point), it was a priority to make large numbers of enemies move smoothly across the map. I used the [RVO2](https://gamma.cs.unc.edu/RVO2/) library which simulates collision avoidance for large numbers of agents. This is more performant than using Unity physics, and creates a better flowing movement of enemy agents, even when they want to move in opposing directions.
 
-[Words](https://aguynamededward.itch.io/) helped out with enemy design, with ideas for intimidating monoliths that block aerial movement and hornet-type enemies that are very quick but periodically have to rest briefly. In addition to the slow virus hordes, I created a bunch of levelled variations of these enemies that could be used in increasingly difficult attack waves.
+[Words](https://aguynamededward.itch.io/) helped out with enemy design, with ideas for intimidating monoliths that block aerial movement and hornet-type enemies that are very quick but periodically have to rest briefly. In addition to the slow virus hordes, I created a bunch of leveled variations of these enemies that could be used in increasingly difficult attack waves.
 
 The most interesting part of the game design for me was around designing the weapons and how they would interact with upgrades.
 
@@ -136,7 +136,7 @@ The most interesting part of the game design for me was around designing the wea
 **Cloud**
 
 - Holding the jump button lets you float and creates damaging clouds.
-- Levelling this ability increases damage and makes you extra speedy while floating.
+- Leveling this ability increases damage and makes you extra speedy while floating.
 - Duration is the most important upgrade for this ability - extending the total float time.
 - Can be a great way to damage enemies early, but lategame it's a very useful escape tool.
 
@@ -154,7 +154,7 @@ The most interesting part of the game design for me was around designing the wea
 **Backup**
 
 - A shield that provides iframes after being broken, which also creates a blast that damages and slows enemies.
-- An easy ability to slot into any build. Even un-levelled, having a shield that can take one hit every ten seconds is helpful.
+- An easy ability to slot into any build. Even un-leveled, having a shield that can take one hit every ten seconds is helpful.
 - Cooldown upgrades can reduce the time between shields, and duration improves the invulnerable time.
 - With upgrades, the shield break deals good damage and can slow already sluggish enemies to a standstill.
 
@@ -185,7 +185,7 @@ The most interesting part of the game design for me was around designing the wea
 
 ## <a id="upgrades"></a> Upgrades and Strategy
 
-There are 10 upgradable stats that can be levelled.
+There are 10 upgradable stats that can be leveled.
 - Attack Size
 - Cooldown reduction
 - Damage modifier
@@ -210,7 +210,7 @@ With upgrades to the jump height and attack size upgrades, a **Delete** strategy
 
 We were inspired by the visual style of the Japan-only PS1 game *Love and Destroy*, which only has a couple of recorded examples online at this time. I really like the game's visual effects, but I didn't have enough time to emulate them properly for this jam. The game's unique color palette did make a big impact on us, as well as the character design.
 
-The character, who I believe we called ViVi, was made in Blender. It was my first time trying to animate hair with an armature and while it's minimally noticable I think it came out okay. The look of chunky PS1 hands slapping keyboards to type is really funny to me so that's what she does to fire off the attack programs in the game.
+The character, who I believe we called ViVi, was made in Blender. It was my first time trying to animate hair with an armature and while it's minimally noticeable I think it came out okay. The look of chunky PS1 hands slapping keyboards to type is really funny to me so that's what she does to fire off the attack programs in the game.
 
 ![ViVi blender](./character.png) {.media}
 
@@ -218,7 +218,7 @@ I made a shader for the 'cybersea' that uses scene color and depth to bend the t
 
 ![arena map](./hexmap.png) {.hero-image}
 
-I learned about math and implemention for hexagonal grids from [Red Blob Games'](https://www.redblobgames.com/grids/hexagons/) excellent tutorial. Each run, the map is created from Perlin noise that is randomly scaled between thresholds, and the height required for a tile to be generated as water or land is also randomized. So some maps are flatter, have more islands and waterways, or more hills and pits. I've found this can make certain strategies better or worse.
+I learned about the math and implementation of hexagonal grids from [Red Blob Games'](https://www.redblobgames.com/grids/hexagons/) excellent tutorial. Each run, the map is created from Perlin noise that is randomly scaled between thresholds, and the height required for a tile to be generated as water or land is also randomized. So some maps are flatter, have more islands and waterways, or more hills and pits. I've found this can make certain strategies better or worse.
 
 <br/>
 
