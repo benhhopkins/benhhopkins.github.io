@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XWF1PNR9GX"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XWF1PNR9GX');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Games by Ben Hopkins">
+    <meta name="author" content="Ben Hopkins">
+    <link rel="icon" href="/favicon.png">
+
+    <title>10 Minutes to Y2K</title>
+
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+    <h2 class="header-item-top"><a href="/index.html" class="nav">Ben Hopkins</a></h2>
+    <ul>
+        <!-- <li><h4 class="header-item"><a href="/index.html#projects" class="nav">Projects</a></h4></li>
+        <li><h4 class="header-item"><a href="/index.html#dev" class="nav">Dev</a></h4></li>
+        <li><h4 class="header-item"><a href="/index.html#art" class="nav">Art</a></h4></li>
+        <li><h4 class="header-item"><a href="/index.html#jams" class="nav">Jams</a></h4></li> -->
+        <li><div class="header-button"><a href="http://twitter.com/benhhopkins"><img src="/images/twitter.png"></a></div></li>
+    </ul>
+</nav>
+    <main >
+        <article>
+<h1>10 Minutes to Y2K</h1>
+<p><em>Cyberspace-themed Vampire Survivors-like.</em></p>
+<p class="media-fixed-scale"><video autoplay loop muted playsinline src="hero.webm"></video></p>
+<p class="button center"><a href="https://boz-float.itch.io/10-minutes-to-y2k">Play on itch.io</a></p>
+<p><em>10 Minutes to Y2K</em> was made in Unity for GMTK gamejam '22. I was the lead programmer, gameplay designer, and 3d+vfx artist. I worked with a small team:</p>
+<p>Casey &quot;Boz&quot; Weeks: Game Design, Dice/HUD UI/UX, Programming - <a href="https://boz-float.itch.io/">https://boz-float.itch.io/</a><br>
+c0hil: Illustration - Title Screen and Icons - <a href="https://www.instagram.com/c0hil/?hl=en">https://www.instagram.com/c0hil/?hl=en</a><br>
+Edward Newton: Enemy Mechanics and Additional Programming - <a href="https://aguynamededward.itch.io/">https://aguynamededward.itch.io/</a><br>
+Haberworks: Music - <a href="https://soundcloud.com/haberworks">https://soundcloud.com/haberworks</a><br>
+John D. Leon: Sound Effects - <a href="https://www.johndleon.com/">https://www.johndleon.com/</a></p>
+<p class="article-contents"><a href="#goals">Goals</a>
+<a href="#gameplay">Gameplay Mechanics</a>
+<a href="#weapons">Weapons</a>
+<a href="#upgrades">Upgrades and Strategy</a>
+<a href="#art">Art and Arena</a></p>
+<h2><a id="goals"></a> Project Goals</h2>
+<div class="sidebar-container">
+<div class="sidebar-text">
+<p>We entered the jam with a plan to make a Vampire Survivors-style game: the player only controls character movement while earning weapons that trigger passively, with the goal of surviving against hordes of enemies until the end of a timer. We wanted to tweak the formula by adding a jump button and making the arena 3D, and planned to adapt the idea further according to the jam theme. The theme was <em>Roll the Dice</em>, which was incorporated into our level up mechanics.</p>
+<p>My goals/tasks for the jam were to:</p>
+<ul>
+<li>Create a solid foundation for character and enemy movement and interaction.</li>
+<li>Make some fun weapon mechanics and visuals.</li>
+<li>Implement an upgrade system where each weapon could be affected by multiple properties.</li>
+<li>Make some simple character, enemy, and level art - inspired by y2k/psx vibes.</li>
+</ul>
+</div>
+<div class="sidebar-media overflow-right">
+<p class="media"><video autoplay loop muted playsinline src="character.webm"></video></p>
+<p class="caption">Our protagonist launches attack programs at enemies from her virtual-console.</p>
+</div>
+</div>
+<h2><a id="gameplay"></a> Gameplay Mechanics</h2>
+<p>Incorporating a jump button was a big departure from our source formula. It was important that there was a good reason for jumping to be in the game. We accomplished this through:</p>
+<ul>
+<li>3D map terrain, with elevated tiles and chasms of harmful 'cybersea'.</li>
+<li>Enemies that were fast and often surrounded you, but could be jumped over with proper timing.</li>
+<li>Abilities that interacted with the jump button - hold it to float and press it again to slam.</li>
+</ul>
+<div class="sidebar-container">
+<div class="sidebar-text">
+<p>We were inspired by the jam theme to make dice rolls part of the level up screen. <a href="https://boz-float.itch.io/">Boz</a> created a neat mechanic where 3 dice are rolled on each level up, which the player can allocate to slots that increase weapon and upgrade power. It adds some depth to your levelling decisions, on top of figuring out how to maximize synergy betweeen your weapons and upgrades.</p>
+</div>
+<div class="sidebar-media overflow-right">
+<p class="media"><img src="./screen2.png" alt="level screen"></p>
+<p class="caption">Upgrade screen by Boz.</p>
+</div>
+</div>
+<p>I adapted some code from my <a href="../dropchute/">Dropchute</a> project for collision interactions, enemy hitstop, and character control. While enemy behavior simple (just moving directly to the player or to a point), it was a priority to make large numbers of enemies move smoothly across the map. I used the <a href="https://gamma.cs.unc.edu/RVO2/">RVO2</a> library which simulates collision avoidance for large numbers of agents. This is more performant than using Unity physics, and creates a better flowing movement of enemy agents, even when they want to move in opposing directions.</p>
+<p><a href="https://aguynamededward.itch.io/">Words</a> helped out with enemy design, with ideas for intimidating monoliths that block aerial movement and hornet-type enemies that are very quick but periodically have to rest briefly. In addition to the slow virus hordes, I created a bunch of levelled variations of these enemies that could be used in increasingly difficult attack waves.</p>
+<p>The most interesting part of the game design for me was around designing the weapons and how they would interact with upgrades.</p>
+<h2><a id="weapons"></a> Weapons</h2>
+<div class="sidebar-container">
+<div class="sidebar-text">
+<p><strong>Firewall</strong></p>
+<ul>
+<li>Flame wheels spin around the player and damage enemies.</li>
+<li>As the starter weapon, it encourages feeling out manuevering near enemies, and timing the slow-orbiting wheels gives the player something to interact with that isn't too challenging.</li>
+<li>Most upgrades improve this weapon. Projectile speed and pierce allow it to carry the midgame, with fast-orbiting projectiles hitting each enemy multiple times.</li>
+<li>Downside is that it doesn't have damage scaling, so even with many projectile count, pierce, and speed upgrades it still isn't the best solution for endgame high-HP enemies.</li>
+</ul>
+</div>
+<div class="sidebar-media overflow-right">
+<p class="media"><video autoplay loop muted playsinline src="firewall.webm"></video></p>
+</div>
+</div>
+<div class="sidebar-container">
+<div class="sidebar-text">
+<p><strong>Overclock</strong></p>
+<ul>
+<li>Energy bullets fan out in front of the player, and upgrading the weapon fires additional bullets in random directions.</li>
+<li>The bread-and-butter of a projectile-focused strategy along with Firewall, this one has more damage output but demands aiming towards the greatest threat.</li>
+<li>Also affected by a wide variety of upgrades, but projectile count is important for dealing with high-HP enemies.</li>
+</ul>
+</div>
+<div class="sidebar-media overflow-right">
+<p class="media"><video autoplay loop muted playsinline src="overclock.webm"></video></p>
+</div>
+</div>
+<div class="sidebar-container">
+<div class="sidebar-text">
+<p><strong>Delete</strong></p>
+<ul>
+<li>Pressing jump while airborne slams you to the ground, creating a damaging shockwave that scales in power and size by drop height.</li>
+<li>Provides a small amount of invulnerability-frames when you land, allowing the player to safely stomp directly on enemies <em>if</em> the stomp will destroy them. Otherwise, the iframes run out and the player is damaged from overlapping the enemy.</li>
+<li>Jumping off of elevated tiles and slamming at the apex of the jump are critical to getting the most out of this ability.</li>
+</ul>
+</div>
+<div class="sidebar-media overflow-right">
+<p class="media"><video autoplay loop muted playsinline src="delete.webm"></video></p>
+</div>
+</div>
+<div class="sidebar-container">
+<div class="sidebar-text">
+<p><strong>Cloud</strong></p>
+<ul>
+<li>Holding the jump button lets you float and creates damaging clouds.</li>
+<li>Levelling this ability increases damage and makes you extra speedy while floating.</li>
+<li>Duration is the most important upgrade for this ability - extending the total float time.</li>
+<li>Can be a great way to damage enemies early, but lategame it's a very useful escape tool.</li>
+</ul>
+</div>
+<div class="sidebar-media overflow-right">
+<p class="media"><video autoplay loop muted playsinline src="cloud.webm"></video></p>
+</div>
+</div>
+<div class="sidebar-container">
+<div class="sidebar-text">
+<p><strong>Backup</strong></p>
+<ul>
+<li>A shield that provides iframes after being broken, which also creates a blast that damages and slows enemies.</li>
+<li>An easy ability to slot into any build. Even un-levelled, having a shield that can take one hit every ten seconds is helpful.</li>
+<li>Cooldown upgrades can reduce the time between shields, and duration improves the invulnerable time.</li>
+<li>With upgrades, the shield break deals good damage and can slow already sluggish enemies to a standstill.</li>
+</ul>
+</div>
+<div class="sidebar-media overflow-right">
+<p class="media"><video autoplay loop muted playsinline src="backup.webm"></video></p>
+</div>
+</div>
+<div class="sidebar-container">
+<div class="sidebar-text">
+<p><strong>Quarantine</strong></p>
+<ul>
+<li>Nearby hexes are designated for an attack that heavily damages all enemies.</li>
+<li>A very high upside ability for lategame if you can get cooldown, attack size, and damage upgrades.</li>
+<li>More difficult to use early, where compared to other attacks it doesn't offer much protection and sends you scrambling for XP collectables.</li>
+</ul>
+</div>
+<div class="sidebar-media overflow-right">
+<p class="media"><video autoplay loop muted playsinline src="quarantine.webm"></video></p>
+</div>
+</div>
+<h2><a id="upgrades"></a> Upgrades and Strategy</h2>
+<p>There are 10 upgradable stats that can be levelled.</p>
+<ul>
+<li>Attack Size</li>
+<li>Cooldown reduction</li>
+<li>Damage modifier</li>
+<li>Duration increase</li>
+<li>Jump height</li>
+<li>Move speed</li>
+<li>XP collection range</li>
+<li>Projectile count</li>
+<li>Projectile speed / other</li>
+</ul>
+<p>In addition a heal upgrade can show up if you have less than 90% health. Each weapon can be improved by multiple stats, so coordinating your weapon and upgrade levels is vital to maximize synergy. A nice thing about making these stat upgrades for a short game is that each level could make a big impact. It's fun to see your attacks get 50% bigger or immediately feel lower cooldowns after a single point into those upgrades.</p>
+<p>There are three strategies / archetypes players might succeed with:</p>
+<p><strong>Projectile-focused</strong> strategies are definitely the easiest for newer players to get into, likely because it's hard to go wrong with upgrades and often you're strong mow down opponents before needing to dodge. However, if you haven't collected enough XP, the endgame enemies can be overwhelming.</p>
+<p>With upgrades to the jump height and attack size upgrades, a <strong>Delete</strong> strategy can eventually clear the whole screen of small enemies and heavily damage the rest. The midgame is often more difficult for Delete-focused strategies, requiring precise maneuvering to slam as much as possible from elevated tiles without taking damage. Cloud, Backup, and movement speed can aid in survivability and help line up big slams.</p>
+<p><strong>Quarantine</strong> can also be the main damage dealer. With enough upgrade points in cooldown reduction, attack size, and damage, the whole screen will be blanketed in blasts. But you'll need to be creative in the early and midgame when Quarantine shots are unreliable in targeting the greatest threats.</p>
+<h2><a id="art"></a> Art and Arena</h2>
+<p>We were inspired by the visual style of the Japan-only PS1 game <em>Love and Destroy</em>, which only has a couple of recorded examples online at this time. I really like the game's visual effects, but I didn't have enough time to emulate them properly for this jam. The game's unique color palette did make a big impact on us, as well as the character design.</p>
+<p>The character, who I believe we called ViVi, was made in Blender. It was my first time trying to animate hair with an armature and while it's minimally noticable I think it came out okay. The look of chunky PS1 hands slapping keyboards to type is really funny to me so that's what she does to fire off the attack programs in the game.</p>
+<p class="media"><img src="./character.png" alt="ViVi blender"></p>
+<p>I made a shader for the 'cybersea' that uses scene color and depth to bend the tile supports underwater. Noise layers create vertex displacement for waves and coloration. The tile tops emulate some refraction/parallax effects, plus some nonsense scrolling text for flavor.</p>
+<p class="hero-image"><img src="./hexmap.png" alt="arena map"></p>
+<p>I learned about math and implemention for hexagonal grids from <a href="https://www.redblobgames.com/grids/hexagons/">Red Blob Games'</a> excellent tutorial. Each run, the map is created from Perlin noise that is randomly scaled between thresholds, and the height required for a tile to be generated as water or land is also randomized. So some maps are flatter, have more islands and waterways, or more hills and pits. I've found this can make certain strategies better or worse.</p>
+<br/>
+<hr>
+<br/>
+<p>It was fun to work with the team, who all contributed towards the design and helped gather feedback that really improved the game. The music and sounds came out great, props to Haberworks and John D. Leon. The cover and icon art by c0hil are fantastic. Edward was clutch in implementing some features I didn't have time for during the jam. Boz and I worked together to figure out the game mechanics and he did a great job with the interface and UX.</p>
+<br/>
+<p class="hero-image"><img src="./preview.png" alt="screenshot"></p>
+
+        </article>
+    </main>
+    <!--<div class="right">
+        <div class="bgchanger" id="bgdark"></div>
+        <div class="bgchanger" id="bglight"></div>
+    </div>-->
+    <footer id="footer">
+    <hr/>
+    <h4><a href="/">Home</a></h4>
+    <br/>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="/js/prism.js"></script>
+    <!--<script src="/js/bgcolor.js" type="module"></script>-->
+
+</body>
+
+</html>
