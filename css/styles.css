@@ -54,13 +54,13 @@ body {
   body {
     font-size: 1.1em;
     line-height: 1.8975;
-    grid-template-columns: 20em 35% 1fr;
+    grid-template-columns: 20em 40% 1fr;
   }
 }
 @media (min-width: 200em) {
   body {
     font-size: 1.2em;
-    grid-template-columns: 30em 30% 1fr;
+    grid-template-columns: 30em 35% 1fr;
   }
 }
 
@@ -347,12 +347,12 @@ li > ul {
 }
 @media (min-width: 100em) {
   .overflow-right {
-    margin-right: -35%;
+    margin-right: -40%;
   }
 }
 @media (min-width: 140em) {
   .overflow-right {
-    margin-right: -50%;
+    margin-right: -35%;
   }
 }
 

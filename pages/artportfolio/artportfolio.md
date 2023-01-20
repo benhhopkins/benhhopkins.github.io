@@ -22,8 +22,15 @@ Some parts of these characters are animated with bendy-bones in the game.
 ![monk](./media/nun.gif) {.sidebar-media}
 
 ![pistol](./media/pistol.png)<br/><br/>
-![screen](./media/fps_screen.png)<br/><br/>
 ![shotgun](./media/shotgun.png) {.sidebar-media}
+
+</div>
+
+<div class="sidebar-container">
+
+![beholder](./media/beholder.png) {.sidebar-media}
+
+![screen](./media/fps_screen.png) {.sidebar-media}
 
 </div>
 

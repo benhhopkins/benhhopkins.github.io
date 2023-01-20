@@ -107,12 +107,12 @@ body {
     @media #{$mq-xxlarge} {
         font-size: 1.1em;
         line-height: $base-line-height*1.15;
-        grid-template-columns: 20em 35% 1fr;
+        grid-template-columns: 20em 40% 1fr;
     }
 
     @media #{$mq-xxxlarge} {
         font-size: 1.2em;
-        grid-template-columns: 30em 30% 1fr;
+        grid-template-columns: 30em 35% 1fr;
     }
 }
 
@@ -419,11 +419,11 @@ li {
     }
 
     @media #{$mq-xlarge} {
-        margin-right: -35%;
+        margin-right: -40%;
     }
 
     @media #{$mq-xxlarge} {
-        margin-right: -50%;
+        margin-right: -35%;
     }
 }
 
